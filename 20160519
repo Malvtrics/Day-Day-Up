@@ -1,0 +1,3 @@
+//2 ways for change type
+SELECT CAST('1000' AS INT);
+SELECT CONVERT(INT, 1000);
