@@ -1,3 +1,9 @@
 //2 ways for change type
 SELECT CAST('1000' AS INT);
 SELECT CONVERT(INT, 1000);
+//trim 0 in the end and use 1000 separaters 
+=IIF(
+  (Fields!TradedQuantity.Value - CLng(Fields!TradedQuantity.Value)) <> 0,
+  (Format(Fields!TradedQuantity.Value, "#,;(#,)")).TrimEnd("0").TrimEnd("."),
+  Format(Fields!TradedQuantity.Value, "#,0;(#,0)")
+)
