@@ -1,1 +1,2 @@
 1:Redis is very fast and can perform about 110000 SETs per second, about 81000 GETs per second.
+2:Redis is an in-memory but persistent on disk databas
