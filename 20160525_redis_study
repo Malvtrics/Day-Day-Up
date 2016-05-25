@@ -9,3 +9,29 @@
   5)Sorted Sets
 4:use ping to check if server is running or not
 5:how to connect server -> $redis-cli -h 127.0.0.1 -p 6379 -a "mypass"
+6:execute transactions in one step
+redis 127.0.0.1:6379> MULTI
+OK
+redis 127.0.0.1:6379> SET tutorial redis
+QUEUED
+redis 127.0.0.1:6379> GET tutorial
+QUEUED
+redis 127.0.0.1:6379> INCR visitors
+QUEUED
+redis 127.0.0.1:6379> EXEC
+
+1) OK
+2) "redis"
+3) (integer) 1
+7:Redis benchmark is the utility to check the performance of redis by running n commands simultaneously.
+  sh-4.3$ redis-benchmark -h 127.0.0.1 -p 6379 -t set, lpush -n 10000 -q                                                    
+  ====== lpush -n 10000 -q ======                                                                                           
+  100000 requests completed in 1.03 seconds                                                                               
+  50 parallel clients                                                                                                     
+  3 bytes payload                                                                                                         
+  keep alive: 1                                                                                                           
+                                                                                                                          
+  99.99% <= 1 milliseconds                                                                                                  
+  100.00% <= 1 milliseconds                                                                                                 
+  96899.23 requests per second 
+
