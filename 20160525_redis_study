@@ -1,0 +1,11 @@
+1:Redis is very fast and can perform about 110000 SETs per second, about 81000 GETs per second.
+2:Redis is an in-memory but persistent on disk databas
+3:Redis data types :
+  1)Strings -- A String value can be at max 512 Megabytes in length.
+  2)Hashes  -- 	Redis Hashes are maps between string fields and string values.
+  		Every hash can store up to 232 - 1 field-value pairs (more than 4 billion).
+  3)Lists
+  4)Sets
+  5)Sorted Sets
+4:use ping to check if server is running or not
+5:how to connect server -> $redis-cli -h 127.0.0.1 -p 6379 -a "mypass"
