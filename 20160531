@@ -1,0 +1,5 @@
+Jquery is designed to do 4 things:
+1) traversing DOM
+2) animation
+3) event handling 
+4) ajax interaction
