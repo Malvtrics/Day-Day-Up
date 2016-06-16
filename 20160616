@@ -1,0 +1,1 @@
+1: xlsx is new support to NPOI , when file is large, (more than 20 MBs ) it may cause outOfMemory exception
