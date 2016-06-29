@@ -1,8 +1,0 @@
-1: sc delete CARSService
-2: GRANT SELECT ON CoverLetter to FICC_SFS_TECH_READER;
-3: ALTER TABLE CDSFTFeeAR
-  ALTER COLUMN AccountA [nvarchar](50) NULL; 
-  ALTER TABLE CDSFTFeeAR
-  ALTER COLUMN AccountB [nvarchar](50) NULL; 
-4: ALTER DATABASE [DBNAME] COLLATE Chinese_Taiwan_Stroke_CI_AS 
-https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what collate do and why)
