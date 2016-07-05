@@ -18,3 +18,4 @@
 14: The i element was originally used to make other elements italic, but is now commonly used for icons, use awesome css
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <i class="fa fa-info-circle"></i>
+15: .target:nth-child(2)  class为target的父元素下面的第2个target元素的集合
