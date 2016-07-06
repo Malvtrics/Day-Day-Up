@@ -6,3 +6,7 @@ _self	Opens the linked document in the same frame as it was clicked (this is def
 3: line-height proerty can change the relative position for element in his parent div
 4: inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
    fills!!!!  it is very important to fill the whole box!
+5: FirstLine
+  \SecondLine\
+   ThirdLine
+   var myStr = "FirstLine\n\\SecondLine\\\rThirdLine";
