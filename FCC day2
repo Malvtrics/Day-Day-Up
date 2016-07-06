@@ -1,3 +1,8 @@
 1: a href
 _blank	Opens the linked document in a new window or tab
 _self	Opens the linked document in the same frame as it was clicked (this is default)
+2:how to add anchor
+ href="#top" it will find the element with id "top" . so just create one and it will linked to the place
+3: line-height proerty can change the relative position for element in his parent div
+4: inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
+   fills!!!!  it is very important to fill the whole box!
