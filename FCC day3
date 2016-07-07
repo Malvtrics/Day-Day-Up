@@ -20,3 +20,7 @@
    /\s+/ (\s) contrary(\S)
    whitespace including: " " (space), \r (the carriage return), \n (newline), \t (tab), and \f (the form feed).
 12: in an object , using this-> public , using var-> private
+13: js array methods: map/reduce/filter/sort
+    reminder: to filter function -> callback returns true will be kept.
+    sort function: sort can be passed a compare function as a callback. The compare function should return
+         a negative number if a should be before b, a positive number if a should be after b,  or 0 if they are equal.
