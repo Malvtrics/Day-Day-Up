@@ -24,3 +24,6 @@
     reminder: to filter function -> callback returns true will be kept.
     sort function: sort can be passed a compare function as a callback. The compare function should return
          a negative number if a should be before b, a positive number if a should be after b,  or 0 if they are equal.
+14:The second argument to substring is the index to stop at (but not include),    
+   but the second argument to substr is the maximum length to return.
+15:slice/splice usage need to be enhanced
