@@ -16,7 +16,7 @@
    / is the end of the regular expression.
    g means global, which causes the pattern to return all matches in the string, not just the first one.
    i means that we want to ignore the case (uppercase or lowercase) when searching for the pattern.
-11:/\d+/g (\d)   
+11:/\d+/g (\d) in js replace function replace(/\d+/gi)  not replace('/\d+/'), it is not a string 
    /\s+/ (\s) contrary(\S)
    whitespace including: " " (space), \r (the carriage return), \n (newline), \t (tab), and \f (the form feed).
 12: in an object , using this-> public , using var-> private
