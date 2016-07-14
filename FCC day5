@@ -1,1 +1,2 @@
 1: for same origin policy: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+ http/https 2 prototals , can't use ajax with one kind through another
