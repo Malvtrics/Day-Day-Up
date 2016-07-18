@@ -5,3 +5,5 @@
 3: for cross origin-request: use jsonp
 4: $("[name='query']") use this kind of selector
 5: difference between em and rem and px
+6: textContent : no html value
+   innerHTML : all html value
