@@ -7,3 +7,4 @@
 5: difference between em and rem and px
 6: textContent : no html value
    innerHTML : all html value
+7: only 4 kb => nodelist.js => can replace jquery under most conditions => https://github.com/eorroe/NodeList.js/tree/master
