@@ -1,1 +1,3 @@
 1: 函數名用駝峰表示 onchange 要写为onChange
+2: only array has map method, object not have
+3: 代码尽量手写 不要copy
