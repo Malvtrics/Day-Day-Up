@@ -1,4 +1,0 @@
-1: 函數名用駝峰表示 onchange 要写为onChange
-2: only array has map method, object not have
-3: 代码尽量手写 不要copy
-4：注意大小写 和 正确的函数名称
