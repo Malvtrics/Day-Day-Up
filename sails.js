@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @maltrics
- Unwatch 1
-  Star 0
- Fork 1 maltrics/nodejs_note
-forked from rollfocus/cDuozi
- Code  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathnodejs_note/sail.js
-e1141d4  14 hours ago
-@maltrics maltrics Create sail.js
-1 contributor
-RawBlameHistory     43 lines (41 sloc)  3.63 KB
 1：约定优于配置（convention over configuration）[1]，也称作按约定编程[2]，是一种软件设计范式，旨在减少软件开发人员需做决定的数量，
 获得简单的好处，而又不失灵活性。本质是说，开发人员仅需规定应用中不符约定的部分。
 例如，如果模型中有个名为Sale的类，那么数据库中对应的表就会默认命名为sales。
