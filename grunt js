@@ -1,0 +1,5 @@
+1： npm server semantic you can see this link https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004
+    for caret ranges , you need to know this first
+    ^1.2.3 := >=1.2.3 <2.0.0
+    ^0.2.3 := >=0.2.3 <0.3.0
+    ^0.0.3 := >=0.0.3 <0.0.4
