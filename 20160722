@@ -1,2 +1,0 @@
-1: sql  isnull(field, replacement)
-2: sql select from xxxx x  起别名的时候有意义一点 例如 select * from customer cc , 比 select * from customer a 有意义
