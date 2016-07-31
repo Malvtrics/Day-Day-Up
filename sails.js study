@@ -40,5 +40,4 @@ These blueprints make it really easy to get a project up and running with regard
 But suppose you want to use the read, update, and delete operations but the create action needs some tender loving care.
 No problem, just build a create action and the other CRUD operations keep working. 
 Your custom action subs in for the blueprint action. It’s just that simple.
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
+
