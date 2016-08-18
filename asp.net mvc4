@@ -14,3 +14,9 @@
 5: NLog GetCurrentClassLogger slow-running 
    see the reason in http://stackoverflow.com/questions/35110222/nlog-getcurrentclasslogger-slow-running-method-warning-overstated
 6: AntiForgeryToken -> to defend CSRF attack
+7: what does visual studio mean by normalize inconsistent line endings?
+  you have endings with something other than a carriage reurn/ine feed pair, It often happens when you copy and paste from a web page
+  into the code editor.
+  Normalizing the line endings is just making sure that all of the line ending characters are consistent.
+  It prevents one line from ending in \r\n and another ending with \r or \n;
+  \r\n is used for windows line end pair while \r or \n is usded for Mac or Linux files
