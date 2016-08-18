@@ -24,3 +24,9 @@
   read this article :  http://www.oschina.net/translate/about-html-semantics-front-end-architecture
 12: 美团酒店 https://cnodejs.org/topic/558d1453ebf9c92d17e732fa
 13：前端工程师手册 https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/semantic-html.html
+14: CMYK代表印刷上用的四种颜色，C代表青色（Cyan），M代表洋红色（Magenta），Y代表黄色（Yellow），K代表黑色（Black）。
+  因为在实际应用中，青色、洋红色和黄色很难叠加形成真正的黑色，最多不过是褐色而已。因此才引入了K——黑色。
+  黑色的作用是强化暗调，加深暗部色彩。
+  CMYK模式是当阳光照射到一个物体上时，这个物体将吸收一部分光线，并将剩下的光线进行反射，反射的光线就是我们所看见的物体颜色。
+  这是一种减色色彩模式，同时也是与RGB模式的根本不同之处。
+  不但我们看物体的颜色时用到了这种减色模式，而且在纸上印刷时应用的也是这种减色模式。
