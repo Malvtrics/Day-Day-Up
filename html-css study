@@ -2,3 +2,30 @@
 2:you can change the case in css like this:
   text-transform: uppercase; 
 3:height of option can't be set because it is a system control
+4:font-family degrade:  font-family: a, b , c
+5:border-radius : 50%  how is the percentage calculated out? raduis -> to the center of the element
+6:alt in img 1)when img can't be loaded 2) used for search engine
+7:<input type="text" required>
+8:name property can be the same to multi checkboxes and radio buttons
+9:padding set in one line top->right->bottom->left (clockwise)
+10:all your other elements will inherit your body element's styles.
+11:css privilage order:
+    !important > inline style > id control > declaration order in style section > inherit from the parent
+12:three ways to show the color in css
+  background-color: #00ff00
+  background-color: #0f0 (can be simpilified)
+  background-color: rgb(0,0,0);
+13:btn-block (bootstrap) make the button fill the width of the page(usally for the mobile client)
+14:(boostrap)btn-danger-> text-danger btn-primary-> text-primary  all similar
+15:The i element was originally used to make other elements italic, but is now commonly used for icons, use awesome css
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+  <i class="fa fa-info-circle"></i>
+16:.target:nth-child(2)  class为target的所有父元素下面的第2个target元素的集合
+17: a href
+  _blank	Opens the linked document in a new window or tab
+  _self	Opens the linked document in the same frame as it was clicked (this is default)
+18:how to add anchor
+ href="#top" it will find the element with id "top" . so just create one and it will linked to the place
+19: line-height proerty can change the relative position for element in his parent div
+20:inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
+   fills!!!!  it is very important to fill the whole box!
