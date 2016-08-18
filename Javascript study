@@ -17,3 +17,58 @@
   4) ajax interaction
 4: Babel is a JavaScript compiler.Babel kneden -> make async to promise  
   surf "https://github.com/marten-de-vries/kneden" for more details
+5: FirstLine
+  \SecondLine\
+   ThirdLine
+   var myStr = "FirstLine\n\\SecondLine\\\rThirdLine";
+   1: in js,string is immutable , (array is immutable , can be changed with index )
+2: Variables which are used without the var keyword are automatically created in the global scope.
+3: 1 == '1' true(equal) 
+   1 === '1' false(strict equal)(data type)
+   Like the equality operator, less than operator converts data types while comparing.'1' < 2(true)
+4: switch case use strict equality
+5: http://json.org/ (json explanation)
+6: js function return everything no definition for return type when declare;
+7: {"name":"marten"} hasOwnProperty("name")
+   {name: "marten"}  hasOwnProperty(name)
+8: Math.floor(Math.random() * (max - min + 1)) + min
+9: javascript getMonth 0-11 need to + 1 in some cases
+10: Regular expressions => /the/gi
+   / is the start of the regular expression.
+   the is the pattern we want to match.
+   / is the end of the regular expression.
+   g means global, which causes the pattern to return all matches in the string, not just the first one.
+   i means that we want to ignore the case (uppercase or lowercase) when searching for the pattern.
+11:/\d+/g (\d) in js replace function replace(/\d+/gi)  not replace('/\d+/'), it is not a string 
+   /\s+/ (\s) contrary(\S)
+   whitespace including: " " (space), \r (the carriage return), \n (newline), \t (tab), and \f (the form feed).
+12: in an object , using this-> public , using var-> private
+13: js array methods: map/reduce/filter/sort
+    reminder: to filter function -> callback returns true will be kept.
+    sort function: sort can be passed a compare function as a callback. The compare function should return
+         a negative number if a should be before b, a positive number if a should be after b,  or 0 if they are equal.
+14:The second argument to substring is the index to stop at (but not include),    
+   but the second argument to substr is the maximum length to return.
+15:slice/splice usage need to be enhanced
+16: \ in string is meaningless, should use \\ instead
+17: indexOf can be used for string and array
+18: charCodeAt()  fromCharCode() very useful
+19: Object.keys(val) good method for parsing json data
+20: pre-filter json data:
+    json = json.filter(function(val) {
+      return (val.id !== 1);
+    });
+21: get user's position 
+ if (navigator.geolocation) {
+   navigator.geolocation.getCurrentPosition(function(position) {
+     $("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+   });
+ }
+22: for same origin policy: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+    http/https 2 prototals , can't use ajax with one kind through another
+23: for cross origin-request: use jsonp
+24: $("[name='query']") use this kind of selector
+25: difference between em and rem and px
+26: textContent : no html value
+   innerHTML : all html value
+27: only 4 kb => nodelist.js => can replace jquery under most conditions => https://github.com/eorroe/NodeList.js/tree/master
