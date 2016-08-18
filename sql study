@@ -18,3 +18,5 @@ https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what colla
     just copy table: insert into aaa select * from  [Table]
     create new and copy:select * into aaa from [Table]
 10: if chinese:nchar/nvarchar if not char/varchar
+11: select convert(char, getdate(), 100) --mon dd yyyy hh:mmAM (or PM) 
+    select convert(char, getdate(), 101) --mm/dd/yyyy 
