@@ -1,2 +1,4 @@
 
 1:css from outside to innderside : margin border padding width
+2:you can change the case in css like this:
+text-transform: uppercase; 
