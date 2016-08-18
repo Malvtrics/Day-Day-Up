@@ -31,3 +31,5 @@
 21:inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
    fills!!!!  it is very important to fill the whole box!
 22: 除去li前面的黑点 list-style-type: none;
+23:textContent : no html value
+   innerHTML : all html value
