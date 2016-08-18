@@ -1,4 +1,4 @@
-
 1:css from outside to innderside : margin border padding width
 2:you can change the case in css like this:
-text-transform: uppercase; 
+  text-transform: uppercase; 
+3:height of option can't be set because it is a system control
