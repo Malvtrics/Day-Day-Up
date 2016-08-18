@@ -7,3 +7,14 @@
 5://2 ways for change type
   SELECT CAST('1000' AS INT);
   SELECT CONVERT(INT, 1000);
+6: GRANT SELECT ON CoverLetter to FICC_SFS_TECH_READER;
+7: ALTER TABLE CDSFTFeeAR
+  ALTER COLUMN AccountA [nvarchar](50) NULL; 
+  ALTER TABLE CDSFTFeeAR
+  ALTER COLUMN AccountB [nvarchar](50) NULL; 
+8: ALTER DATABASE [DBNAME] COLLATE Chinese_Taiwan_Stroke_CI_AS 
+https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what collate do and why)
+9: copy table will not copy primary key 
+    just copy table: insert into aaa select * from  [Table]
+    create new and copy:select * into aaa from [Table]
+10: if chinese:nchar/nvarchar if not char/varchar
