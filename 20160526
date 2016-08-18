@@ -1,9 +1,0 @@
-soluction for "Server Too Busy" error:
-add delayNotificationTimeout="20" under this node,the default value is 5,
-which is not enough for our solutions to conjure up everything it needed to successfully run.
-<system.web>
-    <httpRuntime maxRequestLength="104850" 
-                 executionTimeout="600" 
-                 enableVersionHeader="false" 
-                 delayNotificationTimeout="20" />
-</system.web>
