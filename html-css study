@@ -22,8 +22,8 @@
   <i class="fa fa-info-circle"></i>
 16:.target:nth-child(2)  class为target的所有父元素下面的第2个target元素的集合
 17: a href
-  _blank	Opens the linked document in a new window or tab
-  _self	  Opens the linked document in the same frame as it was clicked (this is default)
+  _blank  Opens the linked document in a new window or tab
+  _self   Opens the linked document in the same frame as it was clicked (this is default)
 18:how to add anchor
  href="#top" it will find the element with id "top" . so just create one and it will linked to the place
 19: line-height proerty can change the relative position for element in his parent div
