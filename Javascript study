@@ -76,3 +76,23 @@
   The onload evenet is a standard event in the Dom , while the ready evenet is specific to jQuery , the purpose of the ready event 
   is that it should occur as early as possible after the document has loaded , so that code that adds functionality to the elements 
   in the page doesn.t have to wait for all content to load.
+28:Jquery
+  content ops: html()/text()
+  class ops: addClass()/css()
+  append content: append()/appendTo()/before()/after()
+  copy: clone()
+  replace elements: replaceWith()/replaceAll()
+  wrap elements: wrap()/wrapInner()
+  delete elements: remove()/empty()
+  binding events: bind()/unbind()
+  toggle(speed,callback) (for hide and show)
+  slideToggle([duration],[,complete]) description: display or hide the matched elements with a sliding motion
+  one time event: one(event,[data],function)
+  trigger the events: trigger(event)
+  basic animation effects (fade/slide)
+  custom animation effects animate({params},speed , callback)
+  stop animation: stop()
+  get data from server: load(url , data, callback)/getJson(url,[data],callback)/getScript(url,[callback])/get(url,callback)
+  send data to server: post(url,data,callback)
+  
+  
