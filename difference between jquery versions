@@ -1,0 +1,12 @@
+The concept of versioning gets a little more nuanced with jQuery, 
+where browser compatibility can be just as important as API compatibility.
+In order to create a slimmer jQuery, the team started shipping two versions in 2013. 
+The first version remained numbered in the 1.x line and, currently at 1.11.1, maintains compatibility with a maximal number of browsers. 
+The second version, starting with 2.0.0 and now at 2.1.1, dropped support for browsers like IE8 or lower in order to streamline the code. 
+Both the 1.x and 2.x versions of jQuery have the same public APIs, even though they differ somewhat in their internal implementations.
+
+Our next releases will use a different nomenclature. 
+As before, there will be two different released files. 
+The successor to what is now version 1.11.1 will become jQuery Compat 3.0. 
+The successor to jQuery 2.1.1 will be jQuery 3.0.
+There are two different packages on npm and Bower, but they share the same version to indicate they have the same API behavior.
