@@ -15,7 +15,7 @@
   background-color: #00ff00
   background-color: #0f0 (can be simpilified)
   background-color: rgb(0,0,0);
-13:btn-block (bootstrap) make the button fill the width of the page(usally for the mobile client)
+13: (bootstrap) make the button fill the width of the page(usally for the mobile client)
 14:(boostrap)btn-danger-> text-danger btn-primary-> text-primary  all similar
 15:The i element was originally used to make other elements italic, but is now commonly used for icons, use awesome css
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
