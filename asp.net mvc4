@@ -9,3 +9,7 @@
                    enableVersionHeader="false" 
                    delayNotificationTimeout="20" />
   </system.web>
+3: set start URL in web property "http://localhost:59259/" and this will avoid the application open the current page you when you debug
+4: asp.net mvc 3/4 cannot set chrome as the default browser
+5: NLog GetCurrentClassLogger slow-running 
+   see the reason in http://stackoverflow.com/questions/35110222/nlog-getcurrentclasslogger-slow-running-method-warning-overstated
