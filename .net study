@@ -5,3 +5,4 @@ Microsoft.Web.Infrastructure 1.0.0
 This package(dll) contains the Microsoft.Web.Infrastructure assembly that lets you dynamically register HTTP modules at run time.
 http://stackoverflow.com/questions/4742894/mvc3-deployment-dependency-problems
 see the solution through this page , the property copy local must be true
+2:sc delete CARSService
