@@ -29,3 +29,5 @@
 19: line-height proerty can change the relative position for element in his parent div
 20:inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
    fills!!!!  it is very important to fill the whole box!
+21: remove black dot for li , add this to css:
+   list-style-type: none;
