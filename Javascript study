@@ -69,6 +69,10 @@
 23: for cross origin-request: use jsonp
 24: $("[name='query']") use this kind of selector
 25: difference between em and rem and px
-26: textContent : no html value
-   innerHTML : all html value
-27: only 4 kb => nodelist.js => can replace jquery under most conditions => https://github.com/eorroe/NodeList.js/tree/master
+26: only 4 kb => nodelist.js => can replace jquery under most conditions => https://github.com/eorroe/NodeList.js/tree/master
+27: The differences between Js's window.onload and Jquery's $(document).ready?
+  The ready event occurs after the HTML document has been loaded , while the onload event occurs later , when all content 
+  (eg. images) also has been loaded.
+  The onload evenet is a standard event in the Dom , while the ready evenet is specific to jQuery , the purpose of the ready event 
+  is that it should occur as early as possible after the document has loaded , so that code that adds functionality to the elements 
+  in the page doesn.t have to wait for all content to load.
