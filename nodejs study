@@ -1,1 +1,2 @@
 1: use n/nvm to control nodejs/npm versions
+2: cnpm 搭建私有npm 服务 http://blog.fens.me/nodejs-cnpm-npm/
