@@ -15,18 +15,19 @@
   background-color: #00ff00
   background-color: #0f0 (can be simpilified)
   background-color: rgb(0,0,0);
-13: (bootstrap) make the button fill the width of the page(usally for the mobile client)
+13:(bootstrap) make the button fill the width of the page(usally for the mobile client)
 14:(boostrap)btn-danger-> text-danger btn-primary-> text-primary  all similar
-15:The i element was originally used to make other elements italic, but is now commonly used for icons, use awesome css
+15:(boostrap)图标不能和其他组件联合使用,他们不能在同一个元素上与其他类共同存在,应该创建一个nested的标签,然后将图标类应用到这个标签上.
+16:The i element was originally used to make other elements italic, but is now commonly used for icons, use awesome css
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
   <i class="fa fa-info-circle"></i>
-16:.target:nth-child(2)  class为target的所有父元素下面的第2个target元素的集合
-17: a href
+17:.target:nth-child(2)  class为target的所有父元素下面的第2个target元素的集合
+18: a href
   _blank  Opens the linked document in a new window or tab
   _self   Opens the linked document in the same frame as it was clicked (this is default)
-18:how to add anchor
+19:how to add anchor
  href="#top" it will find the element with id "top" . so just create one and it will linked to the place
-19: line-height proerty can change the relative position for element in his parent div
-20:inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
+20: line-height proerty can change the relative position for element in his parent div
+21:inline-block can make  a grid of boxes that fills the browser width and wraps nicely.
    fills!!!!  it is very important to fill the whole box!
-21: 除去li前面的黑点 list-style-type: none;
+22: 除去li前面的黑点 list-style-type: none;
