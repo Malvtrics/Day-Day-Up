@@ -1,0 +1,10 @@
+1: angular js 的渲染过程 
+   1) html load and parse to DOM
+   2) load angular.js 
+   3) wait for DOMContentLoad event (在支持domcontentload 事件的浏览器中,等同于$(document).ready)
+   4) find ng-app to find 边界 (eg: html or some divs)
+   5) use ng-app module to configure ng-injector
+   6) injector generate compiler and rootscope
+   7) comilper will compile dom and link it to rootscope
+   8) ng-init will set value for variables in rootscope 
+   9) change values in {{}} exrpessions 
