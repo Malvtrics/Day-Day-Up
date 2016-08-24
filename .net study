@@ -16,3 +16,46 @@ see the solution through this page , the property copy local must be true
   6) 父类非静态变量
   7) 父类构造函数
   8) 子类构造函数 
+4: c# 中的闭包实例 
+namespace Closure
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //use closure
+            var a = new Closure();
+            var b = a.T1();
+            Console.WriteLine(b());
+            Console.WriteLine(b());
+            //not use closure
+            var c = a.T2();
+            var d = a.T2();
+            Console.WriteLine(c);
+            Console.WriteLine(d);
+        }
+    }
+    class Closure
+    {
+        public Func<int> T1()
+        {
+            var n = 10;
+            return () =>
+            {
+                n++;
+                return 2 * n;
+            };
+        }
+        
+        public int T2()
+        {
+            var n = 10;
+            n++;
+            return 2 * n;
+        }
+    }
+}
+//22
+//24
+//22
+//22
