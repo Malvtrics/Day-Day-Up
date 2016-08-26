@@ -1,12 +1,5 @@
-1: error when publish:
-Could not load type 'Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility' from assembly 'Microsoft.Web.Infrastructure,
-Version=1.0.0.0, Culture=neutral, 
-Microsoft.Web.Infrastructure 1.0.0
-This package(dll) contains the Microsoft.Web.Infrastructure assembly that lets you dynamically register HTTP modules at run time.
-http://stackoverflow.com/questions/4742894/mvc3-deployment-dependency-problems
-see the solution through this page , the property copy local must be true
-2:sc delete CARSService
-3: c#类的初始化顺序 
+1:删除service命令　sc delete CARSService
+2: c#类的初始化顺序 
   类在初始化时的执行顺序,依次如下:
   1) 子类静态变量
   2) 子类静态构造函数
@@ -16,7 +9,7 @@ see the solution through this page , the property copy local must be true
   6) 父类非静态变量
   7) 父类构造函数
   8) 子类构造函数 
-4: c# 中的闭包实例 
+3: c# 中的闭包实例 
 namespace Closure
 {
     class Program
