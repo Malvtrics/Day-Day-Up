@@ -108,3 +108,17 @@
   限制: 那些无法从根对象查询到的对象都将被清除
 30 new vs prototype 
 http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/
+31 一套经典的闭包题目
+function fun(n,o) {
+  console.log(o)
+  return {
+    fun:function(m){
+      return fun(m,n);
+    }
+  };
+}
+var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+//问:三行a,b,c的输出分别是什么？
+http://www.cnblogs.com/xxcanghai/p/4991870.html
