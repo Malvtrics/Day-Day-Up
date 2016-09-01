@@ -1,0 +1,18 @@
+简单来说浏览器可以分为两部分，shell(tool bar ... etc)+内核
+
+Trident又称MSHTML，是微软开发的渲染引擎
+Gecko是C++开发的,主要的使用者有Firefox。
+Webkit主要的使用者有Safari，Chrome。
+Presto由Opera Software公司开始的
+
+渲染过程
+content -> content sink -> dom tree -> css frame constructor -> resolved style
+        -> css -> style sheet       ->
+
+Trident：这个内核对真正的网页标准 支持不是很好        
+Gecko：这是Firefox 和 Flock 所采用内核，这个内核的优点就是功能强大、丰富，可以支持很多复杂网页效果和浏览器扩展接口，
+  但是代价是也显而易见就是要消耗很多的资源，比如内存。
+Presto：Opera 采用的是 Presto内核，Presto内核被称为公认的浏览网页速度最快的内核，这得益于它在开发时的天生优势，
+  在处理JS脚本等脚本语言时，会比其他的内核快3倍左右，缺点就是为了达到很快的速度而丢掉了一部分网页兼容性。
+Webkit：Webkit 是 Safari 采用的内核，优点就是网页浏览速度较快，虽然不及 Presto 但是也胜于 Gecko 和 Trident，
+  缺点是对于网页代码的容错性不高，也就是说对网页代码的兼容性较低，会使一些编写不标准的网页无法正确显示。
