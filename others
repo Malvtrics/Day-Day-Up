@@ -1,9 +1,12 @@
 1: xlsx is new support to NPOI , when file is large, (more than 20 MBs ) it may cause outOfMemory exception
+　NPOI的另一个坑就是在读取excel的时候，如果最后一个行是空行，就是说没有内容但是仍然存在　
+　用getlastrownum取到的是对的，用physicalnumberofrows 可以取到空行
 2: console.log(para1, para2)  join the para1 and para2 ouput together
 3: chrome inner tool can set throttling to "no thorttling" to test offline circumerstance 
 4: 矢量图，也称为面向对象的图像或绘图图像，在数学上定义为一系列由线连接的点。
-5: SVG (Scalable Vector Graphics)代表可升级 矢量图象 ，是新一代图象格式的标准。
+　SVG (Scalable Vector Graphics)代表可升级 矢量图象 ，是新一代图象格式的标准。
   它给 Web开发 人员提供了一种利用 XML(Extensible Markup Language)创建静态图像和动态图像的方法，是图象技术上的一次革命
+5: png 用的是无损格式　移动
 6:when first load page ,just show the resources(pics) user must see, when change tab, after hover before click , the static
   resources can be pre loaded first ,it can reduce the timing for users.
 7: h5 has some attributes for pre load 
