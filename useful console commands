@@ -1,0 +1,59 @@
+  console.group("first group");
+	console.log('hello');
+	console.info('information');
+	console.error('error');
+	console.warn('warning');
+	console.groupEnd();
+	
+	console.group("second group");
+	console.log("%d year %d month %d day",2016,9,5);
+	console.groupEnd();
+	
+	var info = {
+		blog:"baidu.com",
+		qqgroup:634408779,
+		message:"good morning"
+	}
+	console.dir(info);
+	
+	var info2 = document.getElementById("mine");
+	console.dirxml(info2);
+	
+　　var num = 3;
+	var str = '3';
+　　console.assert(num==str);
+	console.assert(num===str);
+	
+	function add(a,b){
+		console.trace();
+　　　　return a+b;
+　　}
+　　var x = add3(1,1);
+　　function add3(a,b){return add2(a,b);}
+　　function add2(a,b){return add1(a,b);}
+　　function add1(a,b){return add(a,b);}
+
+	console.time("timer");
+　　for(var i=0;i<1000;i++){
+　　　　for(var j=0;j<1000;j++){}
+　　}
+　　console.timeEnd("timer");
+
+	function All(){
+　　　　for(var i=0;i<1000;i++){
+			funcA(10000);
+		}
+　　　　funcB(1000000);
+　　}
+
+　　function funcA(count){
+　　　　for(var i=0;i<count;i++){}
+　　}
+
+　　function funcB(count){
+　　　　for(var i=0;i<count;i++){}
+　　}
+
+　　console.profile('performance analysis');
+　　All();
+　　console.profileEnd();
