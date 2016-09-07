@@ -26,7 +26,7 @@ console.assert(num===str);
 
 function add(a,b){
 	console.trace();
-　　return a+b;
+　　	return a+b;
 }
 var x = add3(1,1);
 function add3(a,b){return add2(a,b);}
@@ -34,15 +34,15 @@ function add2(a,b){return add1(a,b);}
 function add1(a,b){return add(a,b);}
 
 console.time("timer");
-　　for(var i=0;i<1000;i++){
-　　　　for(var j=0;j<1000;j++){}
-　　}
-　　console.timeEnd("timer");
+for(var i=0;i<1000;i++){
+　　for(var j=0;j<1000;j++){}
+}
+console.timeEnd("timer");
 
 function All(){
 　　for(var i=0;i<1000;i++){
 	funcA(10000);
-	}
+    }
 　　funcB(1000000);
 }
 
