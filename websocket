@@ -1,0 +1,10 @@
+1:before websockt , there are 2 ways for web 实时应用
+ 1）轮询 （包括长轮询）
+ 2）流 在客户端的页面用一个隐藏的窗口向服务器发出一个长连接的请求，server 接收到这个请求后，做出回应并且不断更新链接状态
+    以保证客户端和服务器端的连接不过期
+对coder来说是痛苦的，因为他们需要模拟服务器端和客户端的双向通讯，所以本质上这并不是实时技术
+websocket 使用js 调用browser的API发出一个websocket请求到server，经过一次握手和server建立了tcp通讯，本质是一个tcp连接
+过程：
+ browser发出一个请求，头信息中的upgrade:websocket表明这是一个websocket请求 包含一个key
+ server 拿到后，与一个magic string (我他么也不知道是啥，，，)连接成一个新的key 串，用SHA1编码生成一个由多组两位16进制构成的加密串
+ 再将加密串进行base64编码生成最终的key给客户端，这样，双方就在一个加密的通道中自由交谈了。。咩哈哈
