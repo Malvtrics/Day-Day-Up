@@ -52,3 +52,7 @@
     </form>
   </body>
 </html>
+27 document.createDocumentFragment()
+在动态创建html节点的时候，如果更新少量节点，可以直接向document.body节点添加，但是当要向document中大量添加时，很慢
+因为每一个节点的添加都会用到appendChild方法，为了解决这个问题，可以创建一个文档碎片，把所有新节点加上，然后把文档
+碎片一次性添加到document中
