@@ -34,3 +34,8 @@
 23:textContent : no html value
    innerHTML : all html value
 24: 注意：上下内边距与左右内边距一致；即上下内边距的百分数会相对于父元素宽度设置，而不是相对于高度。
+25:               cookie              localstorage    sessionstorage
+    usage         4kb                 5mb             5mb
+    lifecycle     server(can be set)  forever         removed if close browser
+    connection    bring with server   only in local   only in local
+    easy to use   source API bad      source API good
