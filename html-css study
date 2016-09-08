@@ -39,3 +39,16 @@
     lifecycle     server(can be set)  forever         removed if close browser
     connection    bring with server   only in local   only in local
     easy to use   source API bad      source API good
+26 label 妙用
+<html>
+  <body>
+    <p>请点击文本标记之一，就可以触发相关控件：</p>
+    <form>
+      <label for="male">Male</label>
+      <input type="radio" name="sex" id="male"/><br/>
+      <label for="female">Female</label>
+      <input type="radio" name="sex" id="female"/><br/>
+      <label>shit<input type="radio" name="sex"></label>
+    </form>
+  </body>
+</html>
