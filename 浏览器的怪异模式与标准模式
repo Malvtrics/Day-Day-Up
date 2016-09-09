@@ -1,0 +1,31 @@
+严格模式 = 标准模式
+怪异模式 = 兼容模式
+1:浏览器对没有doctype声明的网页采用怪异模式解析
+2:对于拥有doctype声明的网页 https://hsivonen.fi/doctype/
+3:对于那些浏览器不能识别的doctype声明，浏览器采用严格模式解析
+
+是否是一个好的解决方案？
+　　我个人觉得，通过doctype来切换不同的模式并不见得是一个好主意。
+　　一般来说，doctype应该是用来描述文档结构的，此处却是用来判断采用何种渲染模式，这样就会违背了表现与结构分离的原则，
+　　但是浏览器厂商并不觉得这事一个坏主意，相反他们一个接一个的模仿采用这种方式，到如今，所有的浏览器都支持这种方式了。
+　　
+脚本检测
+　　可以通过document对象有个属性compatMode ,它有两个值：
+　　“BackCompat”    对应怪异模式 ie5
+　　“CSS1Compat”    对应标准模式 >ie5
+　　
+W3C box mode VS IE box mode
+IE的content部分把 border 和 padding计算了进去
+例：一个盒子的
+margin 为 20px，border 为 1px，padding 为 10px，
+content 的宽为 200px、高为 50px，
+标准 w3c 盒子模型：
+　　占据的位置：内容(content) + 填充(padding) + 边框(border) + 边界(margin)；
+　　占据的位置为：宽 20*2+1*2+10*2+200=262px、高 20*2+1*2*10*2+50=112px；
+　　盒子的实际大小：内容(content) + 填充(padding) + 边框(border)；
+　　盒子的实际大小为：宽 1*2+10*2+200=222px、高 1*2+10*2+50=72px；
+ie 盒子模型：
+　　占据的位置：内容(content)+边界(margin)；
+　　占据的位置为：宽 20*2+200=240px、高 20*2+50=70px，
+　　盒子的实际大小：内容(content)；
+　　盒子的实际大小为：宽 200px、高 50px。
