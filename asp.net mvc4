@@ -20,3 +20,68 @@
   Normalizing the line endings is just making sure that all of the line ending characters are consistent.
   It prevents one line from ending in \r\n and another ending with \r or \n;
   \r\n is used for windows line end pair while \r or \n is usded for Mac or Linux files
+8:throw an exception in controller and get it in ajax error function 
+ 1) in VS2010 
+  //back end 
+  public ActionResult SaveData(string id)
+  {
+      try
+      {
+          throw new Exception("test");
+      }
+      catch (Exception ex)
+      {
+          Response.StatusCode = 500; // Suggest internal server error
+          return Json(new
+          {
+              Message = ex.Message // or some other message.
+          });
+      }
+  }
+  //front end 
+  saveData = function () {
+    $.ajax({
+        url: '@Url.Action("SaveData")',
+        type: "POST",
+        success: function (data, status, xhr) {
+            alert("success,message is " + data);
+        },
+        error: function (xhr, status, err) {
+            alert("error,message is " + JSON.parse(xhr.responseText).Message);
+        }
+    });
+  }
+  2) in VS2015
+  //back end 
+  public ActionResult SaveData()
+  {
+      bool success = true;
+      try
+      {
+          if (success)
+          {
+              return new HttpStatusCodeResult(200, "ok");
+          }
+          else
+          {
+              throw new Exception("error message!");
+          }
+      }
+      catch (Exception ex)
+      {
+          return new HttpStatusCodeResult(404, ex.Message);
+      }
+  }
+  //front end 
+  saveData = function () {
+      $.ajax({
+          url: '@Url.Action("SaveData")',
+          type: "POST",
+          success: function (data, status, xhr) {
+              alert("success,message is " + data);
+          },
+          error: function (xhr,status,err) {
+              alert("error,message is " + err);
+          }
+      });
+  }
