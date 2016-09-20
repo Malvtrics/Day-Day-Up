@@ -1,0 +1,16 @@
+1: Symbol
+var foo = Symbol("foo");
+var foo2 = Symbol("foo");
+js 的第七种类型,用来标志是独一无二的值 typeof(foo) //symbol
+里面的foo字符串是用来描述symbol的
+foo与foo2不等
+var foo = Symbol.for("foo");
+var foo2 = Symbol.for("foo");
+foo与foo2相等  Symbol.for方法会去寻找重复描述的symbol
+var obj = {};
+var a = Symbol('a');
+obj[a]="hello";
+Object.getOwnPropertySymbols方法返回对象的Symbol值
+Symbol作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()返回
+Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名
+Symbol.keyFor(foo) // "foo"
