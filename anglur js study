@@ -8,3 +8,7 @@
    7) comilper will compile dom and link it to rootscope
    8) ng-init will set value for variables in rootscope 
    9) change values in {{}} exrpessions 
+2: (9月21日新增)2.0出了最终版. 官方的说法是: 意味着借助预编译技术和内置的延迟加载机制,发布更快更好的应用
+   2是一个革命性的web开发框架,10年10月用microsoft的typescript重写后,性能提升,功能增强, 资源占用更少
+   官网:https://angular.io/
+   5 mins 入门教程 https:/angular.io/docs/ts/latest/quickstart.html
