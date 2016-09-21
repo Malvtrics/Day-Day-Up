@@ -1,0 +1,15 @@
+1:karma
+  google 开发
+  1)启动一个web服务器,生成包含js源代码和js测试脚本的页面
+  2)运行浏览器加载页面,现实测试结果
+  3)如果开启检测.当有文件修改时.继续执行以上过程
+2:jasmine
+  优秀的javascript单元测试框架之一，目前淘宝UED正在使用，在易用性和质量上都非常不错。
+  理念 BDD for JavaScript --- behavior-driven development
+3:mocha
+ Mocha（发音"摩卡"）诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。
+ 一般在nodejs 里面
+ mocha，http://visionmedia.github.com/mocha/
+加上should.js这个断言库 https://github.com/visionmedia/should.js
+4:tape
+ https://github.com/substack/tape/
