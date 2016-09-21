@@ -141,3 +141,26 @@ alert(func2(10)); //返回20
 注意分析this 大部分情况下都是指调用函数的对象
 35:http://web.jobbole.com/82251/ 
 10道不错的js笔试题
+    第九题目用闭包的解决办法
+    function JSClass() {
+        this.m_Text = 'division element';
+        this.m_Element = document.createElement('div');
+        this.m_Element.innerHTML = this.m_Text;
+        this.m_Element.addEventListener('click',(function(text){
+            return function() {
+                alert(text);
+            };
+        })(this.m_Text));
+    }
+ 
+    JSClass.prototype.Render = function() {
+        document.body.appendChild(this.m_Element);
+    }
+ 
+    JSClass.prototype.func = function () {
+        alert(this.m_Text);
+    };
+
+    var jc = new JSClass();
+    jc.Render(); 
+    jc.func();
