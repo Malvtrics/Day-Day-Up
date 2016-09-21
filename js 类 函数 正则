@@ -1,0 +1,48 @@
+1:每个js函数都自动拥有一个prototype属性，这个属性是一个对象，这个对象包含一个不可枚举属性constructor,
+  constructor属性的值就是这个函数对象
+  var f = function(){}
+  var p = f.prototype;
+  var c = p.constructor;
+  c === f; //true
+2: 以一个复数类举例
+  每个类其实主要包含五个部分（构造函数、实例字段、实例方法、类字段、类方法）
+  //Complex.js
+  //构造函数
+  function Complex(real, imaginary){
+    this.r = real; //实例字段r
+    this.i= imaginary; //实例字段i
+  }
+  //类的实例方法
+  //类的实例方法要定义为原型对象的属性以保证该方法可以被所有实例继承
+  //实例字段必须使用this来存取实例字段 i r 
+  Complex.prototype.add = function(that){
+    return new Complex(this.r + that.r, this.i + that.i);
+  }
+  //类字段
+  //类字段要定义为构造函数的属性
+  //用大写表明常量
+  Complex.ZERO = new Complex(0,0);
+  //类方法
+  //类方法同样要定义为构造函数的属性，并且不使用this，只操作参数
+  Complex.parse = function(s){
+    try{
+      var m = Complex._format.exec(s);
+      return new Complex(parseFloat(m[1]),parseFloat(m[2]));
+    }catch(x){
+      throw new TypeError("can't be parsed");
+    }
+  }
+  //用下划线表示私有字段
+  //例如匹配字符串{5,5}
+  Complex._foramt = /^\{([^,]+),([^}]+)\}$/;
+  正则都是在一对儿//中
+  锚字符^表示开头 $表示结尾 ^在中括号内表示非
+  \{ \}用\对大括号转义
+  ()圆括号一般用来分组
+  []中括号用来匹配字符类
+  +表示匹配一次或者多次
+  
+  
+  
+  
+  
