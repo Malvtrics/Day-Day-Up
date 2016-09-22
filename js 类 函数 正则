@@ -41,7 +41,20 @@
   ()圆括号一般用来分组
   []中括号用来匹配字符类
   +表示匹配一次或者多次
-  
+3: this 
+Foo.method = function() {
+    function test() {
+        // this 将会被设置为全局对象（译者注：浏览器环境中也就是 window 对象）
+    }
+    test();
+}
+Foo.method = function() {
+    var that = this;
+    function test() {
+        // 使用 that 来指向 Foo 对象
+    }
+    test();
+}
   
   
   
