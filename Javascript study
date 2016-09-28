@@ -108,7 +108,10 @@
   限制: 那些无法从根对象查询到的对象都将被清除
 30 new vs prototype 
 http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/
-31 一套经典的闭包题目
+31
+阮一锋老师关于闭包的解释很好:
+http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html 
+一套经典的闭包题目
 function fun(n,o) {
   console.log(o)
   return {
