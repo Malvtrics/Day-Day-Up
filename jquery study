@@ -1,0 +1,24 @@
+1: The Benefits of Using a CDN  (https://www.sitepoint.com/7-reasons-to-use-a-cdn/)
+  1) Different domains
+  Browsers limit the number of concurrent connections (file downloads) to a single domain. 
+  Most permit four active connections so the fifth download is blocked until one of the previous files has been fully retrieved. 
+  You can often see this limit in action when downloading many large files from the same site.
+  CDN files are hosted on a different domain. 
+  In effect, a single CDN permits the browser to download a further four files at the same time.
+  2) Files may be pre-cached
+  jQuery is ubiquitous on the web. There’s a high probability that someone visiting your pages has already visited a site using 
+  the Google CDN. Therefore, the file has already been cached by your browser and won’t need to be downloaded again.
+  3) High-capacity infrastructures
+  You may have great hosting but I bet it doesn’t have the capacity or scalability offered by Google, Microsoft or Yahoo. 
+  The better CDNs offer higher availability, lower network latency and lower packet loss.
+  4) Distributed data centers
+  If your main web server is based in Dallas, users from Europe or Asia must make a number of trans-continental electronic hops
+  when they access your files. Many CDNs provide localized data centers which are closer to the user and result in faster downloads.
+  5) Built-in version control
+  It’s usually possible to link to a specific version of a CSS file or JavaScript library. 
+  You can often request the “latest” version if required.
+  6) Usage analytics
+  Many commercial CDNs provide file usage reports since they generally charge per byte. 
+  Those reports can supplement your own website analytics and, 
+  in some cases, may offer a better impression of video views and downloads.
+  7) Boosts performance and saves money
