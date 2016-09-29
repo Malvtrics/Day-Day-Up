@@ -1,0 +1,19 @@
+var TemplateEngine = function(tpl,data){
+		var reg  = /<%([^%]*)%>/g;
+		var array = tpl.match(reg);
+		for(var i in array){
+		    var prop = array[i].replace(/(<|>|%)/g,'');
+			if(data.hasOwnProperty(prop)){
+				tpl = tpl.replace(array[i],data[prop]);
+			}
+		}
+		return tpl;
+	}
+	
+	var template = '<p>Hello , my name is <%name%>, I\'m <%age%> years old.</p>';
+	console.log(TemplateEngine(template,{
+		name:"Marten",
+		age:29
+	}))
+  
+  so easy
