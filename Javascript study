@@ -169,3 +169,59 @@ alert(func2(10)); //返回20
     jc.func();
 11: 在任意一个时间点,只能有唯一一个执行上下文在运行之中, 这就是js为什么是单线程的原因,意思就是一次只能处理一个请求.
 12: JavaScript 存储  http://web.jobbole.com/88241/
+13: this的理解 http://web.jobbole.com/88264/
+   总结
+   情况1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window，
+    这里需要说明的是在js的严格版中this指向的不是window，但是我们这里不探讨严格版的问题，你想了解可以自行上网查找。
+   情况2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。
+   情况3：如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象，
+   var o = {
+    a:10,
+    b:{
+        // a:12,
+        fn:function(){
+            console.log(this.a); //undefined
+        }
+      }
+    }
+    o.b.fn();
+    还有一种比较特殊的情况，例子4：
+    var o = {
+        a:10,
+        b:{
+            a:12,
+            fn:function(){
+                console.log(this.a); //undefined
+                console.log(this); //window
+            }
+        }
+    }
+    var j = o.b.fn;
+    j();
+    这里this指向的是window，是不是有些蒙了？其实是因为你没有理解一句话，这句话同样至关重要。
+    this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的，例子4中虽然函数fn是被对象b所引用，
+    但是在将fn赋值给变量j的时候并没有执行所以最终指向的是window，这和例子3是不一样的，例子3是直接执行了fn。
+    当this碰到return时
+    如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
+    function fn()  
+    {  
+        this.user = '追梦子';  
+        return {};  //或者 return function(){};  结果都是一样
+    }
+    var a = new fn;  
+    console.log(a.user); //undefined
+    function fn()  
+    {  
+        this.user = '追梦子';  
+        return 1;//或者 undefined 结果都一样
+    }
+    var a = new fn;  
+    console.log(a.user); //追梦子
+    还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。(我特么也是醉了)
+    function fn()  
+    {  
+        this.user = '追梦子';  
+        return null;
+    }
+    var a = new fn;  
+    console.log(a.user); //追梦子
