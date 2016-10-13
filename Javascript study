@@ -94,18 +94,6 @@
   stop animation: stop()
   get data from server: load(url , data, callback)/getJson(url,[data],callback)/getScript(url,[callback])/get(url,callback)
   send data to server: post(url,data,callback)
-29: javascript 内存管理
-  详细: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management
-  概要:
-  1)引用计数垃圾收集
-      理念:“对象有没有其他对象引用到它”。如果没有引用指向该对象（零引用），对象将被垃圾回收机制回收。
-  限制：循环引用
-      这个简单的算法有一个限制，就是如果一个对象引用另一个（形成了循环引用），他们可能“不再需要”了，但是他们不会被回收。
-  2)标记-清除算法 
-      理念:假定设置一个叫做根的对象（在Javascript里，根是全局对象）。定期的，垃圾回收器将从根开始，找所有从根开始引用的对象，
-      然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和所有不能获得的对象。
-  从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法。所有对JavaScript垃圾回收算法的改进都是基于标记-清除算法的改进
-  限制: 那些无法从根对象查询到的对象都将被清除
 30 new vs prototype 
 http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/
 31
