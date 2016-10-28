@@ -21,3 +21,15 @@ https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what colla
 10: if chinese:nchar/nvarchar if not char/varchar
 11: select convert(char, getdate(), 100) --mon dd yyyy hh:mmAM (or PM) 
     select convert(char, getdate(), 101) --mm/dd/yyyy 
+12: select a from b where c = c1 and d = d2 and e > e5
+    if use union index:  there will be c,  (c,d) , (c,d,e) 3 indexes
+    why quick :  it select fewer data first , then sort and page them 
+    if use single index: first select c = c1 , sort and page them , then selct d = d2 , sort and page them , then .... so slower 
+    when use index and notes for use index: 
+      data more than 300;
+      table which connect with other tables;
+      fields which often appear in where clause
+      set index on  the  smaller fields not on the long string 
+      use union index carefully , better use single index first 
+      if too much CRUD operations on the table , not too much index 
+   
