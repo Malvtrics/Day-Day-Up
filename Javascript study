@@ -214,3 +214,10 @@ alert(func2(10)); //返回20
     }
     var a = new fn;  
     console.log(a.user); //追梦子
+ 14: null vs undefined
+ null 表示数字、字符串和对象是无值的 是javascript的关键字 是object类型 通常表示程序级的、正常的或者在意料之中的值的空缺 
+ undefined 表明变量没有初始化 不是关键字 是预定义的全局变量 是undefined类型 通常表示系统级的、出乎意料的或者类似错误的值的空缺
+ 15：再次温习javascript的类型
+  包含原始类型和对象类型
+  原始类型有 文本、数字、布尔 两个特殊的 null undefined 
+  对象类型有 数组和函数
