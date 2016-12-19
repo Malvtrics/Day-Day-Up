@@ -52,3 +52,6 @@ namespace Closure
 //24
 //22
 //22
+4: when creat big txt file using c#
+the size like 2g 
+you can use streamwriter instead of file.writealltext to make the memory used just for a single line.
