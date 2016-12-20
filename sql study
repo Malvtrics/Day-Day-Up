@@ -52,3 +52,5 @@ SELECT UserName,Password,RealName,Mobile,Age FROM bw_Users WHERE UserName = XXX 
 其实上面那个是一个非聚集索引，那我们就可以把Password,RealName,Mobile这三列作为索引包含列；
 所以，最终就是建立一个以UserName 和 Age做为键列、Password,RealName,Mobile作为非键列的非聚集索引；
 通常来说我们系统的用户表并不是很大，所以这样的优化起不了很明显的效果，如果有兴趣的可以使用大表进行性能测试；
+14: bulk copy vs bcp insert
+http://sqlfreetips.blogspot.hk/2009/06/difference-between-bcp-and-bulk-insert.html
