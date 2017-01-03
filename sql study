@@ -54,3 +54,4 @@ SELECT UserName,Password,RealName,Mobile,Age FROM bw_Users WHERE UserName = XXX 
 通常来说我们系统的用户表并不是很大，所以这样的优化起不了很明显的效果，如果有兴趣的可以使用大表进行性能测试；
 14: bulk copy vs bcp insert
 http://sqlfreetips.blogspot.hk/2009/06/difference-between-bcp-and-bulk-insert.html
+15:nvarchar(MAX) 、ntext的差别
