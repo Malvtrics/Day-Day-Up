@@ -83,3 +83,9 @@ exec('drop VIEW ' + @name)
 FETCH NEXT from mycur into @name
 END
 CLOSE mycur
+17: Max string length in sql  
+Length of a string containing SQL statements (batch size)1 65,536 * Network packet size
+1 Network Packet Size is the size of the tabular data stream (TDS) packets used to communicate between applications 
+and the relational Database Engine. The default packet size is 4 KB, 
+and is controlled by the network packet size configuration option.
+ another senerio : add all sql in one string and use excute method.
