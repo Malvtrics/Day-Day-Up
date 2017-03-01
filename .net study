@@ -55,3 +55,5 @@ namespace Closure
 4: when creat big txt file using c#
 the size like 2g 
 you can use streamwriter instead of file.writealltext to make the memory used just for a single line.
+5:how many threads can run on machine?
+32bit pc -> 2g memory -> 1m for each thread ->  can open nearly 2000 threads
