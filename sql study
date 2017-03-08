@@ -90,3 +90,4 @@ and the relational Database Engine. The default packet size is 4 KB,
 and is controlled by the network packet size configuration option.
  another senerio : add all sql in one string and use excute method.
 18 跨区域建database的时候,注意temp表要加 collabrate 关键字+正确字符集  默认情况下  temp 表的字符编码是 server 的编码 不是 db 的编码
+https://msdn.microsoft.com/zh-cn/library/ms190920.aspx
