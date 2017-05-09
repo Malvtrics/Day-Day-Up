@@ -1,0 +1,16 @@
+1: sql server generate script 时候 注意advance 里面的选项 比如判断是否 exist 等等
+2: 
+<a href="javascript:alert(1)" onclick="alert(2)" id="link">click me</a>
+<script>
+    var link = document.getElementById('link');
+    link.onclick = function() { alert(3); }
+ 
+    $('#link').bind('click', function() { alert(4); });
+    $('#link').bind('click', function() { alert(5); });
+</script>
+3 4 5 1
+3: NPOI
+4: excel 几个功能注意 vlookup  //PIVOT TABLE //COUNTIFS / SUMIFS  //LEFT/RIGHT  //
+5: PPT几个功能注意 advanced --> don't compress images in file
+--->insert -> object ->< microsoft Equation 3.0 (for formulas)
+--->slide show -> set up slide show -> show without animation
