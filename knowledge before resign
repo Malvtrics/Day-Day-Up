@@ -47,4 +47,8 @@ powershell.exe -noprofile -command "& './App_Script.ps1'";
 PAUSE
 7: for the future knowledges you need to know
 TCP/IP HTTP WCF  || SSIS || WebApi || .net framwork deep knowledge || 大型电子商务网站 商业性网站系统架构和开发 || 网站常见的安全漏洞和避免方法
-
+8: some parts need to take care in a long way
+1) a book named: "design_pattern_tutorial.pdf"
+2) a book named : "Head First Design Patterns.pdf"
+3) a book named : "Skeet J. - C# in Depth, 3rd Edition - 2013"
+4) sql 优化
