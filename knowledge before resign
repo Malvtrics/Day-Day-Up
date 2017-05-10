@@ -14,3 +14,36 @@
 5: PPT几个功能注意 advanced --> don't compress images in file
 --->insert -> object ->< microsoft Equation 3.0 (for formulas)
 --->slide show -> set up slide show -> show without animation
+6: we use powershell to generate checksum code for each source file
+there is a app_script.ps1 file like the content below
+
+$host.ui.RawUI.WindowTitle = "Application Checksum Generation"
+$AppbFld = Read-host "Enter Source File Path:"
+$AppTgtchkFld=Read-host "Enter Checksum Path:"
+try
+{
+$stringToReplace=[Regex]::Escape($AppbFld) 
+<#Get-ChildItem $AppbFld -recurse | get-filehash -Algorithm MD5 |Format-List > $AppTgtchkFld\ChkSrcApp.txt#>
+Get-ChildItem $AppbFld -recurse | get-filehash -Algorithm MD5 |Export-Csv -Path $AppTgtchkFld\ChkSrcApp.csv -NoTypeInformation -Force  
+<#Get-ChildItem $AppbFld -recurse | get-filehash -Algorithm MD5 |Format-table -property Algorithm, Hash, Path> $AppTgtchkFld\ChkSrcApp.txt#>
+<#Get-ChildItem $AppbFld -recurse | get-filehash -Algorithm MD5 |Format-Table > $AppTgtchkFld\ChkSrcApp.txt#>
+(get-content $AppTgtchkFld\ChkSrcApp.csv) | % { $_ -replace $stringToReplace, '' } | set-content $AppTgtchkFld\ChkSrcApp.csv
+<#(get-content $AppTgtchkFld\ChkSrcApp.csv) | set-content $AppTgtchkFld\ChkSrcApp.txt#>
+$FileSize=(Get-Item $AppTgtchkFld\ChkSrcApp.csv).length 
+If ($FileSize -gt 0kb){Write-Host "Application Checksum file generated. Please check."}
+Else {Write-Host "----------- Checksum not generated. Please check the input path.------------"}
+}
+catch
+{
+Write-Host "----------- Checksum not generated. Please check the input path.------------"
+}
+
+also there is a appchksum.bat file with content below
+@ECHO OFF
+TITLE "Application Check Sum Generation"
+SET ScriptDir=%~dp0
+SET PSScriptPath=%ScriptDir%App_Script.ps1 
+powershell.exe -noprofile -command "& './App_Script.ps1'";
+PAUSE
+7:
+
