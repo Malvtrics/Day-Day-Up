@@ -45,5 +45,6 @@ SET ScriptDir=%~dp0
 SET PSScriptPath=%ScriptDir%App_Script.ps1 
 powershell.exe -noprofile -command "& './App_Script.ps1'";
 PAUSE
-7:
+7: for the future knowledges you need to know
+TCP/IP HTTP WCF  || SSIS || WebApi || .net framwork deep knowledge || 大型电子商务网站 商业性网站系统架构和开发 || 网站常见的安全漏洞和避免方法
 
