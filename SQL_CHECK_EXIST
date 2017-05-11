@@ -1,0 +1,25 @@
+--Stored Procedure
+IF EXISTS (SELECT * FROM  dbo.sysobjects WHERE id = object_id('dbo.SP_INVOICE_FINANCING_CNY') AND objectproperty(id,'isprocedure')=1) 
+DROP PROCEDURE dbo.SP_INVOICE_FINANCING_CNY
+GO
+
+--Table
+IF EXISTS ( SELECT * FROM sys.tables WHERE [name] = 'TB_Single_Entry' )
+DROP TABLE TB_Single_Entry
+GO
+
+--Column
+IF EXISTS(SELECT 1 FROM sys.columns WHERE Name = N'DraftStartDate' AND Object_ID = Object_ID(N'TB_DRAFT_PAYMENT'))
+BEGIN
+    ALTER TABLE [dbo].[TB_DRAFT_PAYMENT] DROP COLUMN DraftStartDate
+END
+
+--Views
+IF EXISTS(select * FROM sys.views where name = 'VW_Package_RBH')
+     DROP VIEW VW_Package_RBH
+GO
+
+--Function
+IF EXISTS (SELECT * FROM sys.objects WHERE  object_id = OBJECT_ID(N'[dbo].[DF_GETACCOUNT_FROM_DETAILS]') AND type IN ( N'FN', N'IF', N'TF', N'FS', N'FT' ))
+  DROP FUNCTION [dbo].[DF_GETACCOUNT_FROM_DETAILS]
+GO
