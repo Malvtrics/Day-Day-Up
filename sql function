@@ -1,4 +1,4 @@
-USE [AML2]
+USE TEST
 GO
 /****** Object:  UserDefinedFunction [dbo].[DF_FORMAT_DATE_NEW]    Script Date: 5/19/2017 12:09:15 PM ******/
 SET ANSI_NULLS OFF
