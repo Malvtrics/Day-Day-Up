@@ -91,3 +91,13 @@ and is controlled by the network packet size configuration option.
  another senerio : add all sql in one string and use excute method.
 18 跨区域建database的时候,注意temp表要加 collabrate 关键字+正确字符集  默认情况下  temp 表的字符编码是 server 的编码 不是 db 的编码
 https://msdn.microsoft.com/zh-cn/library/ms190920.aspx
+19：USE mengwatest
+--TRUNCATE TABLE dbo.[distinct]
+SET QUOTED_IDENTIFIER off
+create table "distinct"(  
+ id int not  null constraint pk_1 primary   key,  
+ value varchar(255),  
+ flag int  
+)  
+-- on 没有引号 不行 单引号 不行 双引号可以
+--off 都不行
