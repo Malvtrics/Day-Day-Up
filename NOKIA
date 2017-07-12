@@ -1,24 +1,19 @@
-UPDATE
-      D
-   SET
-      D.SUBCATEGORY_CODE = ( CASE WHEN  EXISTS ( SELECT TOP 1
-                                                         *
-                                                      FROM
-                                                         GP_RF_SUBCATEGORY
-                                                      WHERE
-                                                         SUBCATEGORY_CODE = S.REPLACEMENT_CODE ) THEN ( SELECT
-                                                                                                            SUBCATEGORY_ID
-                                                                                                         FROM
-                                                                                                            GP_RF_SUBCATEGORY
-                                                                                                         WHERE
-                                                                                                            SUBCATEGORY_CODE = S.REPLACEMENT_CODE
-                                                                                                      )
-                                  ELSE D.SUBCATEGORY_CODE
-                             END )
+SELECT
+      SUBCATEGORY_CODE ,
+      CONVERT(NVARCHAR , SUBCATEGORY_ID) AS SUBCATEGORY_ID
    FROM
-      dbo.GP_WS_MODIAS_LOG_DETAIL D
-      INNER JOIN GP_RF_SUBCATEGORY S
-      ON D.SUBCATEGORY_CODE = S.SUBCATEGORY_CODE
-         AND  ISNULL(S.REPLACEMENT_CODE , '') <> ''
-      AND  ISNULL(S.SUBCATEGORY_CODE , '') <> ''
-
+      dbo.GP_RF_SUBCATEGORY
+   WHERE
+      SUBCATEGORY_STATUS = 'A'
+      AND ISNUMERIC(SUBCATEGORY_CODE) = 1
+UNION
+SELECT
+      S1.SUBCATEGORY_CODE ,
+      CONVERT(NVARCHAR , S2.SUBCATEGORY_ID) AS SUBCATEGORY_ID
+   FROM
+      GP_RF_SUBCATEGORY S1
+      INNER JOIN GP_RF_SUBCATEGORY S2
+      ON S1.SUBCATEGORY_STATUS = 'D'
+         AND S2.SUBCATEGORY_STATUS = 'A'
+         AND S1.REPLACEMENT_CODE = S2.SUBCATEGORY_CODE
+         AND ISNUMERIC(S1.SUBCATEGORY_CODE) = 1
