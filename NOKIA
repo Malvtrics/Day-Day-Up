@@ -1,1 +1,25 @@
-Meng.J.Wang@alcatel-sbell.com.cn
+SELECT  GLOBAL_PART_NUMBER ,
+        LOCATION_CODE ,
+        COUNT(*) AS RECORD_COUNT
+FROM    dbo.GP_WS_MODIAS_QUEUE
+WHERE   PRICE_TYPE = 'DEL'
+GROUP BY GLOBAL_PART_NUMBER ,
+        LOCATION_CODE
+UNION
+SELECT  GLOBAL_PART_NUMBER ,
+        LOCATION_CODE ,
+        COUNT(*) AS RECORD_COUNT
+FROM    dbo.GP_WS_MODIAS_QUEUE
+WHERE   PRICE_TYPE <> 'DEL'
+        AND PRICE_ID NOT IN (
+        SELECT  Q.PRICE_ID
+        FROM    dbo.GP_WS_MODIAS_QUEUE Q
+                INNER JOIN ( SELECT DISTINCT
+                                    GLOBAL_PART_NUMBER ,
+                                    LOCATION_CODE
+                             FROM   dbo.GP_WS_MODIAS_QUEUE
+                             WHERE  PRICE_TYPE = 'DEL'
+                           ) S ON Q.GLOBAL_PART_NUMBER = S.LOCATION_CODE )
+GROUP BY GLOBAL_PART_NUMBER ,
+        LOCATION_CODE
+
