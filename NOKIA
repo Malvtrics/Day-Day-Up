@@ -1,1 +1,4 @@
 BULK INSERT #TMP_PART FROM '\\135.236.65.21\Prodbak\part-update.txt <__file://\\135.236.65.21\Prodbak\part-update.txt> ' WITH ( FIELDTERMINATOR = '\t', ROWTERMINATOR = '\n') 
+
+
+135.245.48.34
