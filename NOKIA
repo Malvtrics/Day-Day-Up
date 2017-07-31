@@ -1,3 +1,6 @@
+insert into sam_gen_page values('GP_PartCommcodeReportCriteria','GPM/PartCommcodeReport.aspx');
+insert into sam_gen_page values('GP_PartCommcodeReportResult','GPM/PartCommcodeReport.aspx');
+
 INSERT  INTO dbo.SAM_GEN_FIELD( FieldID ,SourceTable , SourceColumn , DefaultValue,ListID, DaughterFieldID,ParentFieldID,IsUserEntry )
 VALUES(  'GPM_NEW_FORECAST_VW_SUBCATEGORY_CODE' , 'GPM_NEW_FORECAST_VW' , '', '','', '','', 'Y' )
 
