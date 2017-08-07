@@ -1,17 +1,96 @@
-CDCALPIN2\SQL2008_DEV_CI_1: 
-INITIAL CATALOG=GPMA;USER ID=GPMA;PASSWORD=gpma;CONNECT TIMEOUT=3600;DATA SOURCE=CDCALPIN2\SQL2008_DEV_CI_1;MAX POOL SIZE=;
-GSbiP9qy9ACVknwPKV7b+vpT/cNekbaZXrM+7bx2RGmehqtejKPrU3turlZqPLy7semNMwnkm7u1SjJoF7sEBA/MZgNvP+pQJ1SDY5sXp48k+RCRdDiJtXGKK6b70x+HYR4Fdq2Ov/fYuAdQV2ztto6EYXqQIeCHOtCxTlyVzOw=
+	SET QUOTED_IDENTIFIER OFF;
+	SET ANSI_NULLS ON;
+	GO
+	--*** Stored procedure body - Begin
+	-- --------------------------------------------------------------------------------
+	-- 
+	--      START OF THE STORED PROCEDURE : [MODIAS_INTERFACE_ALERT]
+	-- 
+	-- ---------------------------------------------------
+	-- This stored procedure [MODIAS_INTERFACE_ALERT] 
+	-- ---------------------------------------------------
+	-- When	: By	: desc
+	-- ---------------------------------------------------
+	-- 2017-08-07	MW	Only Creation
+	-- ---------------------------------------------------
+	ALTER PROCEDURE [dbo].[MODIAS_INTERFACE_ALERT]
+	AS
+	BEGIN
 
-fr711wdbs00647.vpc.alcatel-lucent.com\FR110NA215: 
-INITIAL CATALOG=GPMA;USER ID=GPMA;PASSWORD=GPMA_@WSX;CONNECT TIMEOUT=3600;DATA SOURCE=fr711wdbs00647.vpc.alcatel-lucent.com\FR110NA215;MAX POOL SIZE=;
-GSbiP9qy9ACVknwPKV7b+vpT/cNekbaZXrM+7bx2RGmehqtejKPrUw0kKXIPLarPjuDtyTvAXPELIqxTpCJgyBgCyZExWDBPPBEiTu0B14Tn6Ey+qz4hkTzkxgXMA7WK+IcCLx57MZbMSiy6O9yVln4ME70zWzHygCEF9adv168zaIuipe/rX+AdJia8wP6LlSGW1GoqMs0=
+	   DECLARE
+		  @tableData NVARCHAR(MAX) ,
+		  @mailFrom NVARCHAR(200) ,
+		  @mailTo NVARCHAR(200) ,
+		  @mailSubject NVARCHAR(300) ,
+		  @LAST_OK_TIME DATE ,
+		  @QUEUE_NUMBER INT
+	   SELECT
+			 @mailFrom = 'meng.wang.ext@nokia.com' ,
+			 @mailTo = 'meng.wang.ext@nokia.com' ,
+			 --@mailTo = 'Haoyan.Zhao@nokia-sbell.com.cn;allen.a.zhang@nokia-sbell.com.cn;meng.wang.ext@nokia.com' ,
+			 @mailSubject = 'Modias Interface Data Pending Alert ' + CONVERT(NVARCHAR(100) , GETDATE() , 20) ,
+			 @LAST_OK_TIME = ( SELECT
+									 MAX(TRANSFER_END_TIME)
+								  FROM
+									 dbo.GP_WS_MODIAS_LOG_DETAIL
+								  WHERE
+									 TRANSFER_STATUS = 'OK'
+							 ),
+			@QUEUE_NUMBER = (SELECT COUNT(*) FROM dbo.GP_WS_MODIAS_QUEUE)
+	   IF EXISTS ( SELECT TOP 1
+						 *
+					  FROM
+						 GP_WS_MODIAS_QUEUE )
+	   IF DATEDIFF(HOUR , @LAST_OK_TIME , GETDATE()) > 2 AND @QUEUE_NUMBER > 0
+		  BEGIN
+				-- Css
+			 SET @tableData = '<html><head>';
+			 SET @tableData += '<style type="text/css">body{font-family: Calibri,sans-serif; font-size: 11pt;} </style>';
+			 SET @tableData += '</head>';
+	
+			 SET @tableData += '<body>';
+			 SET @tableData += '<p><span lang="EN-US">Dear all,</span></p>';
+			 SET @tableData += '<p><span lang="EN-US">The modias interface data has not been sent in 2 hours, please check.</span></p>';
+	 
+			 SET @tableData += '<p><span lang="EN-US">The last time the data was sent successfully is </span>' + CONVERT(NVARCHAR(20), @LAST_OK_TIME)  + '</p>';
+			 SET @tableData += '<p><span lang="EN-US">The number of the records in modias queue is </span>' +  CONVERT(NVARCHAR(10), @QUEUE_NUMBER) + '</p>';
+			 SET @tableData += '<p><span lang="EN-US">GPMA IT</span></p>';
+			 SET @tableData += '</body>';
+			 SET @tableData += '</html>';
 
-FR711WSQL00500.vpc.alcatel-lucent.com\FR110NC219: 
-INITIAL CATALOG=GPMA;USER ID=GPMA;PASSWORD=GPM$2008%123;CONNECT TIMEOUT=3600;DATA SOURCE=FR711WSQL00500.vpc.alcatel-lucent.com\FR110NC219;MAX POOL SIZE=;
-GSbiP9qy9ACVknwPKV7b+vpT/cNekbaZXrM+7bx2RGmehqtejKPrUyK7ii47iiNcmmpQl3XKBP4HqE6N5Y5rXFLlENCvfcVFySZ5aKWlShITrEork9g9evjadcviIl1eOwaIq05zm5azfwJHmcYV4ZdLqkWqD1Y6+48cY2l2vT1U5gja2hD9wrS3cPB/wruDPomZU5/k9YaaCcyAZXPO6A==
 
-FR712WSQL00500\FR110PC218
-INITIAL CATALOG=GPMA;USER ID=GPMA;PASSWORD=GPM$2008%11;CONNECT TIMEOUT=3600;DATA SOURCE=FR712WSQL00500\FR110PC218;MAX POOL SIZE=;
-GSbiP9qy9ACVknwPKV7b+vpT/cNekbaZXrM+7bx2RGmehqtejKPrUyK7ii47iiNcNQyRHWETPL0U+koW9Pt+F3lIc5bniweyTLoodcimUuYH/fWLv5j4voNu068rEmupUjgwpOTaziBYnZ6xCdeHmg8+kA35FlN4p2URa0DA/6IMKYRmovMIdw==
+			 INSERT INTO dbo.GP_MAIL_TO_SEND
+				   (
+					 CreationDate ,
+					 SentDate ,
+					 Comments ,
+					 [From] ,
+					 [To] ,
+					 Cc ,
+					 Bcc ,
+					 Subject ,
+					 Body ,
+					 Status
+				   )
+				VALUES
+				   (
+					 GETDATE() , -- CreationDate - datetime
+					 NULL , -- SentDate - datetime
+					 NULL , -- Comments - ntext
+					 @mailFrom , -- From - ntext
+					 @mailTo , -- To - ntext
+					 NULL , -- Cc - ntext
+					 NULL , -- Bcc - ntext
+					 @mailSubject , -- Subject - ntext
+					 @tableData , -- Body - ntext
+					 'TO SEND'  -- Status - varchar(50)		
+				   );        
+		  END;
+        
+	END; 
 
+	--*** Stored procedure body - End
 
+	GO
+
+	EXEC MODIAS_INTERFACE_ALERT
