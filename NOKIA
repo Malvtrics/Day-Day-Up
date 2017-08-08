@@ -1,1 +1,1 @@
-fr712uodb002.zeu.alcatel-lucent.com
+(DATA SOURCE=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=fr712uodb002.zeu.alcatel-lucent.com) (PORT=1522)) (CONNECT_DATA=(SID=PIDB01)));USER ID=GPMA; Password=hpalgpma210;)
