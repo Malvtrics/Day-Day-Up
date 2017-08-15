@@ -4,3 +4,10 @@ QA	fr711wweb00519.vpc.alcatel-lucent.com
 fr711wweb00520.vpc.alcatel-lucent.com
 PROD	fr712wweb00517.vpc.alcatel-lucent.com
 fr712wweb00518.vpc.alcatel-lucent.com
+
+common share folder : 
+\\135.236.65.21\Prodbak
+------------------------------------------------------------------------------------
+common remote logon type:
+username: EMEA\sa_sshgpma         
+password ： /ssh*mpg!luf13   
