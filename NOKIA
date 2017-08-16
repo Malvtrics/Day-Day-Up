@@ -1,9 +1,1 @@
-ALPIN_RF_USER
-Add new column “ION_FLAG” INT
-Configure to SAM_GEN_LIST
-
-1 – IPD_AGILE
-2 – HFP1/FG16
-3 – IPD_AGILE and HFP1/FG16
-
-RF_USER_SYSTEMSOUCE
+jQuery("#select_id").prepend("<option value='0'></option>") 
