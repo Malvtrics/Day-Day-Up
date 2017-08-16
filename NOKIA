@@ -1,13 +1,9 @@
-INT-M	fr711wweb00517.vpc.alcatel-lucent.com
-INT-P	fr711wweb00518.vpc.alcatel-lucent.com
-QA	fr711wweb00519.vpc.alcatel-lucent.com
-fr711wweb00520.vpc.alcatel-lucent.com
-PROD	fr712wweb00517.vpc.alcatel-lucent.com
-fr712wweb00518.vpc.alcatel-lucent.com
+ALPIN_RF_USER
+Add new column “ION_FLAG” INT
+Configure to SAM_GEN_LIST
 
-common share folder : 
-\\135.236.65.21\Prodbak
-------------------------------------------------------------------------------------
-common remote logon type:
-username: EMEA\sa_sshgpma         
-password ： /ssh*mpg!luf13   
+1 – IPD_AGILE
+2 – HFP1/FG16
+3 – IPD_AGILE and HFP1/FG16
+
+RF_USER_SYSTEMSOUCE
