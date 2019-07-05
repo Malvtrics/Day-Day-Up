@@ -102,3 +102,16 @@ create table "distinct"(
 -- on 没有引号 不行 单引号 不行 双引号可以
 --off 都不行
 20 WHERE 条件中 ，把比较严格的条件放在前面，提高执行效率
+21: USE master
+create login 数据库用户名字 with password = 密码
+USE GPMA
+create user 用户 for login 数据库用户名字
+EXEC sp_addrolemember 'db_datareader', 'username'
+
+USE GPMA
+SELECT 'GRANT [SELECT,DELETE,ALTER,EXECUTE] ON "' + TABLE_SCHEMA + '"."' + TABLE_NAME + '" TO "RFQ_ROBOT"' FROM information_schema.tables WHERE TABLE_NAME
+IN ('GP_RFQ')
+
+GRANT SELECT,DELETE,ALTER ON "dbo"."GP_RFQ" TO "RFQ_ROBOT"
+
+ALTER LOGIN [RFQ_ROBOT]  WITH PASSWORD = 'rFQ#10$19%123qA' OLD_PASSWORD = 'RFQ%2019'
