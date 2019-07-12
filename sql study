@@ -1,4 +1,4 @@
-1: sql  isnull(field, replacement)
+
 2: sql select from xxxx x  起别名的时候有意义一点 例如 select * from customer cc , 比 select * from customer a 有意义
 3: select a.[pre-confirmed] as preconfirmd (use a.pre-confirmed will alert error)
 4：use ties:  eg: there is a col (1,3,3,2)
@@ -8,11 +8,7 @@
   SELECT CAST('1000' AS INT);
   SELECT CONVERT(INT, 1000);
 6: GRANT SELECT ON CoverLetter to FICC_SFS_TECH_READER;
-7: ALTER TABLE CDSFTFeeAR
-  ALTER COLUMN AccountA [nvarchar](50) NULL; 
-  ALTER TABLE CDSFTFeeAR
-  ALTER COLUMN AccountB [nvarchar](50) NULL; 
-  DROP COLUMN AccountB
+
 8: ALTER DATABASE [DBNAME] COLLATE Chinese_Taiwan_Stroke_CI_AS 
 https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what collate do and why)
 9: copy table will not copy primary key 
