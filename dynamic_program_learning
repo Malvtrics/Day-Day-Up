@@ -1,2 +1,5 @@
 1 top-down divde and conquer 自上而下分而治之
-2 
+2 exhausted search 穷举搜索
+3 branch and bound 分支界定法
+4 optimization is the art of relaxation 松弛问题 our plan to use a better relaxation in order to prune large part of the tree
+5 首先用贪婪算法确定最大边界，可以自定义贪婪方法，比如按照平均价值 总价值/总重量，这样在可以裁剪一部分树枝
