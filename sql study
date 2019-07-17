@@ -118,3 +118,9 @@ ALTER DATABASE GPMA SET RECOVERY SIMPLE;
 DBCC SHRINKFILE (数据库名_Log, 1); 
 --修改事物日志为完整恢复模式
 ALTER DATABASE GPMA SET RECOVERY FULL;
+23： GRANT BULK INSERT ACCESS TO ROLE 
+Expand Security
+Expand Logins
+Right click on your username and choose properties (A dialog window appears)
+Choose Server Roles
+Select bulkadmin to be able to use bulk commands or sysadmin to be able to use any commands to your database.
