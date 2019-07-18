@@ -3,3 +3,7 @@
 3 branch and bound 分支界定法
 4 optimization is the art of relaxation 松弛问题 our plan to use a better relaxation in order to prune large part of the tree
 5 首先用贪婪算法确定最大边界，可以自定义贪婪方法，比如按照平均价值 总价值/总重量，这样在可以裁剪一部分树枝
+6 如果 relaxation 界定足够好，可以考虑采用广度优先遍历，因为节点的数量一开始就会少一些，深度优先遍历节省内存空间，因为只有有限的树枝可以到达最大深度
+7 search strategies: relaxation and search
+  you can find strong relaxation but they will be very slow , it will explore a very small tree but take a long time 
+  or you find a strong relaxtion have a really good computer
