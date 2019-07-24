@@ -8,3 +8,6 @@
   you can find strong relaxation but they will be very slow , it will explore a very small tree but take a long time 
   or you find a strong relaxtion have a really good computer
 best-first-search 最佳优先搜索 不是 广度优先搜索 =》 breadth first search
+8 constraint programming :  8-queen problem in this case: 
+decision variables => the row place for each queen(already suppose they in different columns)
+constraints: queens not in a row/ queens not in a upward or downward diag
