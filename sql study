@@ -124,3 +124,11 @@ Expand Logins
 Right click on your username and choose properties (A dialog window appears)
 Choose Server Roles
 Select bulkadmin to be able to use bulk commands or sysadmin to be able to use any commands to your database.
+
+24 科学计数法在SQL中如何处理
+SELECT
+    LTRIM(RTRIM(CASE 
+        WHEN @d like '%E-%' THEN CAST(CAST(@d AS FLOAT) AS DECIMAL(18,18))
+        WHEN @d like '%E+%' THEN CAST(CAST(@d AS FLOAT) AS DECIMAL)
+        ELSE @d
+    END))
