@@ -11,3 +11,5 @@ best-first-search 最佳优先搜索 不是 广度优先搜索 =》 breadth firs
 8 constraint programming :  8-queen problem in this case: 
 decision variables => the row place for each queen(already suppose they in different columns)
 constraints: queens not in a row/ queens not in a upward or downward diag
+9 BIBD 平衡不完全区组设计 balanced incomplete block design 
+Cartesian product 笛卡尔积
