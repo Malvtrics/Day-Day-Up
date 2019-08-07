@@ -13,3 +13,6 @@ decision variables => the row place for each queen(already suppose they in diffe
 constraints: queens not in a row/ queens not in a upward or downward diag
 9 BIBD 平衡不完全区组设计 balanced incomplete block design 
 Cartesian product 笛卡尔积
+10 use redundant constraint to prune the search base, eg: in the magic series puzzle, if you use sum (i * series[i] ) = n or sum (series[i]) = n it will prune the search base a lot 
+11 surrogate constraint 代理约束 不是很懂，还需要继续研究 seems it mainly merges all the independent constraints together 
+coefficient 系数
