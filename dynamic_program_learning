@@ -16,3 +16,7 @@ Cartesian product 笛卡尔积
 10 use redundant constraint to prune the search base, eg: in the magic series puzzle, if you use sum (i * series[i] ) = n or sum (series[i]) = n it will prune the search base a lot 
 11 surrogate constraint 代理约束 不是很懂，还需要继续研究 seems it mainly merges all the independent constraints together 
 coefficient 系数
+12 polynomial 多项式   pseudo-polynomial 伪多项式  exploit 利用
+13 the value 0 can be pruned from domain of x4 
+forward process: get to the feasible region(result)
+backward process: prune the values
