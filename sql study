@@ -105,8 +105,10 @@ create user 用户 for login 数据库用户名字
 EXEC sp_addrolemember 'db_datareader', 'username'
 
 USE GPMA
-SELECT 'GRANT [SELECT,DELETE,ALTER,EXECUTE] ON "' + TABLE_SCHEMA + '"."' + TABLE_NAME + '" TO "RFQ_ROBOT"' FROM information_schema.tables WHERE TABLE_NAME
+SELECT 'GRANT SELECT,DELETE,ALTER ON "' + TABLE_SCHEMA + '"."' + TABLE_NAME + '" TO "RFQ_ROBOT"' FROM information_schema.tables WHERE TABLE_NAME
 IN ('GP_RFQ')
+
+--EXCUTION 权限要根据情况赋值
 
 GRANT SELECT,DELETE,ALTER ON "dbo"."GP_RFQ" TO "RFQ_ROBOT"
 
