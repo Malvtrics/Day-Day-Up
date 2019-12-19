@@ -1,93 +1,61 @@
-
-2: sql select from xxxx x  起别名的时候有意义一点 例如 select * from customer cc , 比 select * from customer a 有意义
-3: select a.[pre-confirmed] as preconfirmd (use a.pre-confirmed will alert error)
-4：use ties:  eg: there is a col (1,3,3,2)
+1.起有意义的名字 table view whatever
+2：use ties:  eg: there is a col (1,3,3,2)
   select top 3 order by col group by col (1,2,3)
   select top 3 with ties order by col group by col (1,2,3,3)
-5://2 ways for change type
+3://2 ways for change type
   SELECT CAST('1000' AS INT);
   SELECT CONVERT(INT, 1000);
-6: GRANT SELECT ON CoverLetter to FICC_SFS_TECH_READER;
-
-8: ALTER DATABASE [DBNAME] COLLATE Chinese_Taiwan_Stroke_CI_AS 
+4: GRANT SELECT ON CoverLetter to FICC_SFS_TECH_READER;
+5: ALTER DATABASE [DBNAME] COLLATE Chinese_Taiwan_Stroke_CI_AS 
 https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what collate do and why)
-9: copy table will not copy primary key 
+5: copy table will not copy primary key 
     just copy table: insert into aaa select * from  [Table]
     create new and copy:select * into aaa from [Table]
-10: if chinese:nchar/nvarchar if not char/varchar
-11: select convert(char, getdate(), 100) --mon dd yyyy hh:mmAM (or PM) 
+6: select convert(char, getdate(), 100) --mon dd yyyy hh:mmAM (or PM) 
     select convert(char, getdate(), 101) --mm/dd/yyyy 
-12: select a from b where c = c1 and d = d2 and e > e5
-    if use union index:  there will be c,  (c,d) , (c,d,e) 3 indexes
-    why quick :  it select fewer data first , then sort and page them 
-    if use single index: first select c = c1 , sort and page them , then selct d = d2 , sort and page them , then .... so slower 
-    when use index and notes for use index: 
-      data more than 300;
-      table which connect with other tables;
-      fields which often appear in where clause
-      set index on  the  smaller fields not on the long string 
-      use union index carefully , better use single index first 
-      if too much CRUD operations on the table , not too much index 
-13: http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html#3525997
-结论:
-如何在SQLServer中处理亿万级别的数据(历史数据)，可以按以下方面进行：
-去掉表的所有索引
-用SqlBulkCopy进行插入
-分表或者分区，减少每个表的数据总量
-在某个表完全写完之后再建立索引
-正确的指定索引字段
-把需要用到的字段放到包含索引中(在返回的索引中就包含了一切)
-查询的时候只返回所需的字段
-http://www.cnblogs.com/gaizai/archive/2010/01/11/1644358.html
-【一个例子】
-SELECT UserName,Password,RealName,Mobile,Age FROM bw_Users WHERE UserName = XXX AND Age = XX
-说明：
-这是一个我们很常见的查询语句，我们如何提高查询效率呢？
-首先我们来看看谓词，这条语句是通过UserName = XXX AND Age = XX作为条件的，那么我们就应该建立一个组合索引，也称为复合索引，
-注意索引中的键列的位置，先UserName后Age；
-其实上面那个是一个非聚集索引，那我们就可以把Password,RealName,Mobile这三列作为索引包含列；
-所以，最终就是建立一个以UserName 和 Age做为键列、Password,RealName,Mobile作为非键列的非聚集索引；
-通常来说我们系统的用户表并不是很大，所以这样的优化起不了很明显的效果，如果有兴趣的可以使用大表进行性能测试；
-14: bulk copy vs bcp insert
-http://sqlfreetips.blogspot.hk/2009/06/difference-between-bcp-and-bulk-insert.html
-15:nvarchar(MAX) 、ntext的差别
-16:DELETE ALL SP AND VIEWS
---delete all sp
-declare @procName varchar(500)
-declare cur cursor
-	for select [name] from sys.objects where type = 'p'
-open cur 
-fetch next from cur into @procName
-while @@fetch_status = 0
-begin
-	if @procName <> 'DeleteAllProcedures'
-		  exec('drop procedure ' + @procName)
-		  fetch next from cur into @procName
-end
-close cur
-deallocate cur
+7: 关于联合索引的几点思考
+	1)select a from b where c = c1 and d = d2 and e > e5
+    	if use union index:  there will be c,  (c,d) , (c,d,e) 3 indexes
+	why quick ???  it select fewer data first , then sort and page them 
+	    if use single index: first select c = c1 , sort and page them , then selct d = d2 , sort and page them , then .... so slower 
+	    when use index and notes for use index: 
+	      data more than 300;
+	      table which connect with other tables;
+	      fields which often appear in where clause
+	      set index on  the  smaller fields not on the long string 
+	      use union index carefully , better use single index first 
+	      if too much CRUD operations on the table , not too much index 
+	2)http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html#3525997
+	结论:如何在SQLServer中处理亿万级别的数据(历史数据)，可以按以下方面进行：
+		去掉表的所有索引
+		用SqlBulkCopy进行插入
+		分表或者分区，减少每个表的数据总量
+		在某个表完全写完之后再建立索引
+		正确的指定索引字段
+		把需要用到的字段放到包含索引中(在返回的索引中就包含了一切)
+		查询的时候只返回所需的字段
+	3)SQL Server 索引中include的魅力（具有包含性列的索引）
+		http://www.cnblogs.com/gaizai/archive/2010/01/11/1644358.html
+	4)这是一个我们很常见的查询语句，我们如何提高查询效率呢？
+		SELECT UserName,Password,RealName,Mobile,Age FROM bw_Users WHERE UserName = XXX AND Age = XX
+		首先我们来看看谓词，这条语句是通过UserName = XXX AND Age = XX作为条件的，那么我们就应该建立一个组合索引，也称为复合索引，
+		注意索引中的键列的位置，先UserName后Age；!!!WHERE 条件中 ，把比较严格的条件放在前面，提高执行效率
+		其实上面那个是一个非聚集索引，那我们就可以把Password,RealName,Mobile这三列作为索引包含列；
+		所以，最终就是建立一个以UserName 和 Age做为键列、Password,RealName,Mobile作为非键列的非聚集索引；
+		通常来说我们系统的用户表并不是很大，所以这样的优化起不了很明显的效果，如果有兴趣的可以使用大表进行性能测试；
+8: bulk copy vs bcp insert
+	http://sqlfreetips.blogspot.hk/2009/06/difference-between-bcp-and-bulk-insert.html
+9:nvarchar(MAX) 、ntext的差别(in the future MS will remove ntext)
+10:Max string length in sql  
+	Length of a string containing SQL statements (batch size)1 65,536 * Network packet size
+	1 Network Packet Size is the size of the tabular data stream (TDS) packets used to communicate between applications 
+	and the relational Database Engine. The default packet size is 4 KB, 
+	and is controlled by the network packet size configuration option.
 
---delete all views
-use easysearch5
-declare mycur cursor local for select [name] from dbo.sysobjects where xtype='V'
-declare @name varchar(100)
-OPEN mycur
-FETCH NEXT from mycur into @name
-WHILE @@FETCH_STATUS = 0 
-BEGIN
-exec('drop VIEW ' + @name)
-FETCH NEXT from mycur into @name
-END
-CLOSE mycur
-17: Max string length in sql  
-Length of a string containing SQL statements (batch size)1 65,536 * Network packet size
-1 Network Packet Size is the size of the tabular data stream (TDS) packets used to communicate between applications 
-and the relational Database Engine. The default packet size is 4 KB, 
-and is controlled by the network packet size configuration option.
- another senerio : add all sql in one string and use excute method.
-18 跨区域建database的时候,注意temp表要加 collabrate 关键字+正确字符集  默认情况下  temp 表的字符编码是 server 的编码 不是 db 的编码
-https://msdn.microsoft.com/zh-cn/library/ms190920.aspx
-19：USE mengwatest
+	another solution : add all sql in one string and use excute method.
+11:跨区域建database的时候,注意temp表要加 collabrate 关键字+正确字符集  默认情况下  temp 表的字符编码是 server 的编码 不是 db 的编码
+	https://msdn.microsoft.com/zh-cn/library/ms190920.aspx
+12：USE mengwatest
 --TRUNCATE TABLE dbo.[distinct]
 SET QUOTED_IDENTIFIER off
 create table "distinct"(  
@@ -97,8 +65,8 @@ create table "distinct"(
 )  
 -- on 没有引号 不行 单引号 不行 双引号可以
 --off 都不行
-20 WHERE 条件中 ，把比较严格的条件放在前面，提高执行效率
-21: USE master
+21: how to create db and user and grant access
+USE master
 create login 数据库用户名字 with password = 密码
 USE GPMA
 create user 用户 for login 数据库用户名字
@@ -114,22 +82,22 @@ GRANT SELECT,ALTER ON "dbo"."ConvertListToTable" TO "ipaas"
 
 --EXCUTION 权限要根据情况赋值
 
-GRANT SELECT,DELETE,ALTER ON "dbo"."GP_RFQ" TO "RFQ_ROBOT"
+GRANT INSERT,SELECT,DELETE,ALTER ON "dbo"."GP_RFQ" TO "RFQ_ROBOT"
 
 ALTER LOGIN [RFQ_ROBOT]  WITH PASSWORD = 'rFQ#10$19%123qA' OLD_PASSWORD = 'RFQ%2019'
+23：The bulk insert access need to be granted seperatelly 
+	Expand Security
+	Expand Logins
+	Right click on your username and choose properties (A dialog window appears)
+	Choose Server Roles
+	Select bulkadmin to be able to use bulk commands or sysadmin to be able to use any commands to your database.
 22 DB log full issue
+	ALTER DATABASE GPMA SET RECOVERY SIMPLE;
+	--收缩截断日志文件1MB
+	DBCC SHRINKFILE (数据库名_Log, 1); 
+	--修改事物日志为完整恢复模式
+	ALTER DATABASE GPMA SET RECOVERY FULL;
 
-ALTER DATABASE GPMA SET RECOVERY SIMPLE;
---收缩截断日志文件1MB
-DBCC SHRINKFILE (数据库名_Log, 1); 
---修改事物日志为完整恢复模式
-ALTER DATABASE GPMA SET RECOVERY FULL;
-23： GRANT BULK INSERT ACCESS TO ROLE 
-Expand Security
-Expand Logins
-Right click on your username and choose properties (A dialog window appears)
-Choose Server Roles
-Select bulkadmin to be able to use bulk commands or sysadmin to be able to use any commands to your database.
 
 24 科学计数法在SQL中如何处理
 SELECT
@@ -138,3 +106,30 @@ SELECT
         WHEN @d like '%E+%' THEN CAST(CAST(@d AS FLOAT) AS DECIMAL)
         ELSE @d
     END))
+
+  
+--Stored Procedure
+IF EXISTS (SELECT * FROM  dbo.sysobjects WHERE id = object_id('dbo.SP_INVOICE_FINANCING_CNY') AND objectproperty(id,'isprocedure')=1) 
+DROP PROCEDURE dbo.SP_INVOICE_FINANCING_CNY
+GO
+
+--Table
+IF EXISTS ( SELECT * FROM sys.tables WHERE [name] = 'TB_Single_Entry' )
+DROP TABLE TB_Single_Entry
+GO
+
+--Column
+IF EXISTS(SELECT 1 FROM sys.columns WHERE Name = N'DraftStartDate' AND Object_ID = Object_ID(N'TB_DRAFT_PAYMENT'))
+BEGIN
+    ALTER TABLE [dbo].[TB_DRAFT_PAYMENT] DROP COLUMN DraftStartDate
+END
+
+--Views
+IF EXISTS(select * FROM sys.views where name = 'VW_Package_RBH')
+     DROP VIEW VW_Package_RBH
+GO
+
+--Function
+IF EXISTS (SELECT * FROM sys.objects WHERE  object_id = OBJECT_ID(N'[dbo].[DF_GETACCOUNT_FROM_DETAILS]') AND type IN ( N'FN', N'IF', N'TF', N'FS', N'FT' ))
+  DROP FUNCTION [dbo].[DF_GETACCOUNT_FROM_DETAILS]
+GO
