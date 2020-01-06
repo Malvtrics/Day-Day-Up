@@ -28,7 +28,9 @@ https://technet.microsoft.com/en-us/library/aa174903(v=sql.80).aspx  (what colla
 	2)http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html#3525997
 	结论:如何在SQLServer中处理亿万级别的数据(历史数据)，可以按以下方面进行：
 		去掉表的所有索引
-		用SqlBulkCopy进行插入
+		用SqlBulkCopy进行插入example:
+			CREATE TABLE #martin (col_a NVARCHAR(100), col_b NVARCHAR(100));
+			BULK INSERT #martin FROM 'path\test.txt' WITH ( FIELDTERMINATOR = '\t', ROWTERMINATOR = '\n') 
 		分表或者分区，减少每个表的数据总量
 		在某个表完全写完之后再建立索引
 		正确的指定索引字段
