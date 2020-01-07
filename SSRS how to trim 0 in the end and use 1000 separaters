@@ -1,5 +1,0 @@
-=IIF(
-  (Fields!TradedQuantity.Value - CLng(Fields!TradedQuantity.Value)) <> 0,
-  (Format(Fields!TradedQuantity.Value, "#,;(#,)")).TrimEnd("0").TrimEnd("."),
-  Format(Fields!TradedQuantity.Value, "#,0;(#,0)")
-)
