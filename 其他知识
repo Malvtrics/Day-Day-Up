@@ -42,3 +42,9 @@ https://bonsaiden.github.io/JavaScript-Garden/zh/ 看到原型
 http://www.zhangjiang.net/tabid/411/ArticleID/4334/Default.aspx
 http://www.whyenjoy.com/archives/13149  songs when running
 16：谷歌浏览器上可以轻松切换代理的插件SwitchyOmega 可以通过 chrome://extensions 查看已经安装好的控件
+17：SSRS how to trim 0 in the end and use 1000 separaters
+=IIF(
+  (Fields!TradedQuantity.Value - CLng(Fields!TradedQuantity.Value)) <> 0,
+  (Format(Fields!TradedQuantity.Value, "#,;(#,)")).TrimEnd("0").TrimEnd("."),
+  Format(Fields!TradedQuantity.Value, "#,0;(#,0)")
+)
