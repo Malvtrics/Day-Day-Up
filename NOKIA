@@ -1,1 +1,0 @@
-jQuery("#select_id").prepend("<option value='0'></option>") 
