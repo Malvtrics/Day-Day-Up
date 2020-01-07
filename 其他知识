@@ -1,3 +1,42 @@
+1: xlsx is new support to NPOI , when file is large, (more than 20 MBs ) it may cause outOfMemory exception
+　NPOI的另一个坑就是在读取excel的时候，如果最后一个行是空行，就是说没有内容但是仍然存在　
+　用getlastrownum取到的是对的，用physicalnumberofrows 可以取到空行
+2: console.log(para1, para2)  join the para1 and para2 ouput together
+3: chrome inner tool can set throttling to "no thorttling" to test offline circumerstance 
+4: 矢量图，也称为面向对象的图像或绘图图像，在数学上定义为一系列由线连接的点。
+　SVG (Scalable Vector Graphics)代表可升级 矢量图象 ，是新一代图象格式的标准。
+  它给 Web开发 人员提供了一种利用 XML(Extensible Markup Language)创建静态图像和动态图像的方法，是图象技术上的一次革命
+  png 用的是无损格式　jpg有损格式　移动开发图标最好用png
+5:衬线字体和非衬线字体
+  serif，意思是在字的笔画开始、结束的地方有额外的装饰，而且笔画的粗细会有所不同。
+  sans serif是无衬线字体，没有这些额外的装饰，而且笔画的粗细差不多。
+6:when first load page ,just show the resources(pics) user must see, when change tab, after hover before click , the static
+  resources can be pre loaded first ,it can reduce the timing for users.
+7: h5 has some attributes for pre load 
+   eg: <link rel="prefetch" href="url..">
+8: chrome 内置 pre load 功能, 从设置中可以找到 
+  在chrome 下, 当你hover某个链接 页面的加载已经在执行了( function name: 预测网络操作/联想查询服务 )
+9: 微信公众号如何接入微信支付功能？
+    一，申请服务号，财付通账号
+    二，认证，300块
+    三，填微信支付商户申请书
+    四，微信商户功能开通，然后开始登记经营类目并上传资质文件，要签纸质合同
+    五，开发接入ing
+    六，微信支付保证金，五万或十万(他吗的,简直土匪啊)
+10 : Apache Shiro is a powerful and easy-to-use Java security framework that performs authentication, authorization, cryptography, 
+  and session management. With Shiro’s easy-to-understand API,you can quickly and easily 
+  secure any application – from the smallest mobile applications to the largest web and enterprise applications.
+11:语义是符号与标记之间的关系，编写“语义HTML”原则是现代专业前端开发的基础之一
+  read this article :  http://www.oschina.net/translate/about-html-semantics-front-end-architecture
+12: 美团酒店 https://cnodejs.org/topic/558d1453ebf9c92d17e732fa
+13：前端工程师手册 https://leohxj.gitbooks.io/front-end-database/content/html-and-css-basic/semantic-html.html
+14: CMYK代表印刷上用的四种颜色，C代表青色（Cyan），M代表洋红色（Magenta），Y代表黄色（Yellow），K代表黑色（Black）。
+  因为在实际应用中，青色、洋红色和黄色很难叠加形成真正的黑色，最多不过是褐色而已。因此才引入了K——黑色。
+  黑色的作用是强化暗调，加深暗部色彩。
+  CMYK模式是当阳光照射到一个物体上时，这个物体将吸收一部分光线，并将剩下的光线进行反射，反射的光线就是我们所看见的物体颜色。
+  这是一种减色色彩模式，同时也是与RGB模式的根本不同之处。
+  不但我们看物体的颜色时用到了这种减色模式，而且在纸上印刷时应用的也是这种减色模式。
+15：几个有用的链接
 https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
 https://bonsaiden.github.io/JavaScript-Garden/zh/ 看到原型
 http://www.zhangjiang.net/tabid/411/ArticleID/4334/Default.aspx
