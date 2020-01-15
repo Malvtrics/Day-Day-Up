@@ -87,6 +87,13 @@ GRANT SELECT,ALTER ON "dbo"."ConvertListToTable" TO "ipaas"
 GRANT INSERT,SELECT,DELETE,ALTER ON "dbo"."GP_RFQ" TO "RFQ_ROBOT"
 
 ALTER LOGIN [RFQ_ROBOT]  WITH PASSWORD = 'rFQ#10$19%123qA' OLD_PASSWORD = 'RFQ%2019'
+21-2补充 有时候会发现用户账户无法删除的情况 可以参考帖子
+https://www.mssqltips.com/sqlservertip/2620/steps-to-drop-an-orphan-sql-server-user-when-it-owns-a-schema-or-role/
+是因为账户在一些role上是schema owner 可以用下面的sql查一下
+select * from information_schema.schemata
+where schema_owner = 'PROC_ANALYTICS' 如果有的话，要在对应数据库的security->schema里面双击对应的schema 把是该账户的owner改成dbo
+直到该账户没有own任何一个schema 才可以删除这个账户
+
 23：The bulk insert access need to be granted seperatelly 
 	Expand Security
 	Expand Logins
