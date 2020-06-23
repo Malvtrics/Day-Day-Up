@@ -42,4 +42,56 @@ Dog.prototype = new Animal();
 所以最终采用 原型链加对象冒充组合继承
 
 
+抽象类和抽象方法主要用来制定标准
+类的继承主要通过extends 实现constructor 用super关键字
+多态 
+父类定义一个方法但是不实现 交给子类去实现
+抽象方法只能出现在抽象类中
+但是抽象类中可以定义非抽象方法
+
+接口也是定义标准但是更加强大,有三种
+属性类型接口
+函数类型接口
+类类型接口
+
+属性类型接口
+比如要传入一个json对象，并且对象必须有label属性并且要求是string
+对批量方法传入参数进行约束 属性类型接口
+Interface Fullname{
+	 firstname: string;
+	 lastname: string; # 可以加问号 表示可传可不传
+}
+Function aaa(name: fullname){
+	name.firstname
+}
+Obj = {age:23, firstname:’a’,lastname:’b’}
+ aaa(obj) 是可以的
+aaa( {age:23, firstname:’a’,lastname:’b’) 不行
+
+函数类型接口
+Interface encrypt{
+	(key:string, value:string):string;
+}
+Function aaa : interface (key:string, value:string) : string{
+	return key + “***” + value ;
+}
+
+类类型接口
+implements 关键字实现类类型接口
+extends 和 implement 可以同时使用
+
+要求输入参数和返回参数一致但是不指定类型 用泛型
+
+类装饰器可以动态扩展类的属性，在不改变类代码的基础上扩展类的属性以及方法等
+用@放在类上去 function的参数就是类， 然后在prototype上添加
+
+
+属性装饰器算是比较高级的用法了，直接用在属性上，可以改变类的属性值（比如赋默认值）
+
+
+function (…args:any[]) 参数任意，都放到一个数组中
+
+方法装饰器也很有用，比如一个场景，需要把类中某个方法传入的参数都变成string类型 ，想一下怎么搞
+
+装饰器的执行顺序 属性=》 方法 》 方法参数》 类，同一级内部从后到前
 
